@@ -1,0 +1,24 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "TestSolution",
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "TestWP",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.18.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.18.0",
+    "libraryName": "test-solution",
+    "libraryId": "49f9d275-f322-4127-bea9-9a49fff6404c",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionShortDescription": "TestSolution description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  }
+}
