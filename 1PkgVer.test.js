@@ -13,7 +13,6 @@ test("File changed", () => {
 
   const gulpDotJS = fs.readFileSync(".\\Sources\\gulp.js", "utf8");
 
-  console.log(dataAfter === gulpDotJS);
   expect(dataAfter).toMatch(gulpDotJS);
 });
 

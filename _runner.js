@@ -10,7 +10,6 @@ function runner() {
     .option("-path [value]", "provide webpart folder path")
     .parse(process.argv);
   const options = program.opts();
-  console.log(options);
 
   if (!options.Path) {
     throw new Error("Path is a required parameter");
