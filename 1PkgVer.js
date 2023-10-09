@@ -1,8 +1,18 @@
+const { Command } = require("commander");
+
+const program = new Command();
+
+program
+  .option("-path [value]", "provide webpart folder path")
+  .parse(process.argv);
+
+const options = program.opts();
+console.log(options);
+
 var fs = require("fs");
 console.log("automate");
 
-const filePath1 =
-  "C:\\Users\\basse\\code\\testWPs\\VanillaForNode\\gulpfile.js";
+const filePath1 = options.Path;
 const source1 = "const build = require('@microsoft/sp-build-web');";
 const replacement1 =
   'const gulp = require("gulp");\n' +
