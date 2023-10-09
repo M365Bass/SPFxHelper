@@ -13,7 +13,7 @@ declare interface ITestWpWebPartStrings {
   UnknownEnvironment: string;
 }
 
-declare module 'TestWpWebPartStrings' {
+declare module "TestWpWebPartStrings" {
   const strings: ITestWpWebPartStrings;
   export = strings;
 }
