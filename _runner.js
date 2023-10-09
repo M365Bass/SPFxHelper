@@ -27,8 +27,11 @@ function runner() {
 
   const path = options.Path + "gulpfile.js";
 
-  const commands = [`node 1PkgVer.js -path ` + path, `npm list -g --depth=0`];
-  // const commands = [`node 2FastServe.js`, `npm list -g --depth=0`];
+  const commands = [
+    `node 1PkgVer.js -path ` + path,
+    `node 2FastServe.js -path ` + path,
+    `npm list -g --depth=0`,
+  ];
 
   for (let index = 0; index < commands.length; index++) {
     const command = commands[index];
