@@ -11,25 +11,23 @@ function runner() {
     .parse(process.argv);
   const options = program.opts();
 
+  const gulpfilePath = options.Path + "gulpfile.js";
   if (!options.Path) {
     throw new Error("Path is a required parameter");
   } else {
-    try {
-      if (fs.existsSync(options.Path + "gulpfile.js")) {
-        console.log("Path contains gulpfile.js");
-      } else {
-        console.log("Path does not contain gulpfile.js");
-      }
-    } catch (err) {
-      throw new Error("FILE NOT FOUND");
+    if (fs.existsSync(gulpfilePath)) {
+      console.log("Path contains gulpfile.js");
+    } else {
+      console.log(
+        "Path does not contain gulpfile.js, please run again with a different path."
+      );
+      process.exit();
     }
   }
 
-  const path = options.Path + "gulpfile.js";
-
   const commands = [
-    `node 1PkgVer.js -path ` + path,
-    `node 2FastServe.js -path ` + path,
+    `node 1PkgVer.js -path ` + gulpfilePath,
+    `node 2FastServe.js -path ` + options.Path,
     `npm list -g --depth=0`,
   ];
 

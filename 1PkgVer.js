@@ -11,7 +11,7 @@ function PkgVer() {
 
   const options = program.opts();
 
-  const filePath = options.Path;
+  const gulpfilePath = options.Path;
   const source1 = "const build = require('@microsoft/sp-build-web');";
   const replacement1 =
     'const gulp = require("gulp");\n' +
@@ -24,7 +24,7 @@ function PkgVer() {
     const source = [source1, source2];
     const replacement = [replacement1, data];
 
-    fs.readFile(filePath, "utf8", function (err, data) {
+    fs.readFile(gulpfilePath, "utf8", function (err, data) {
       if (err) return console.log(err);
 
       if (source.length === replacement.length) {
@@ -36,14 +36,14 @@ function PkgVer() {
         }
       }
 
-      fs.writeFile(filePath, result, "utf8", function (err) {
+      fs.writeFile(gulpfilePath, result, "utf8", function (err) {
         if (err) return console.log(err);
       });
     });
 
     setTimeout(function () {
-      console.log(`npx prettier ${filePath} --write`);
-      execSync(`npx prettier ${filePath} --write`);
+      console.log(`npx prettier ${gulpfilePath} --write`);
+      execSync(`npx prettier ${gulpfilePath} --write`);
     }, 2000);
   });
 }
