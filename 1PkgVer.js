@@ -17,7 +17,7 @@ function PkgVer() {
     'const gulp = require("gulp");\n' +
     'const build = require("@microsoft/sp-build-web");';
 
-  const source2 = "build.initialize(require('gulp'));";
+  const source2 = 'build.initialize(require("gulp"));';
   fs.readFile(".\\Sources\\gulp.js", "utf8", function (err, data) {
     if (err) return console.log(err);
 

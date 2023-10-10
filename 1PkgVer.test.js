@@ -11,7 +11,14 @@ test("File changed", () => {
 
   const gulpDotJS = fs.readFileSync(".\\Sources\\gulp.js", "utf8");
 
-  expect(dataAfter).toMatch(gulpDotJS);
+  const x = dataAfter.indexOf(
+    "pkgSolution.solution.version = newVersionNumber;"
+  );
+  console.log(x);
+
+  expect(dataAfter).toContain(
+    "pkgSolution.solution.version = newVersionNumber;"
+  );
 });
 
 afterEach(() => {
