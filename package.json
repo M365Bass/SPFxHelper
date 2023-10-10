@@ -4,7 +4,10 @@
   "description": "",
   "main": "automate.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-seq": "jest --runInBand",
+    "init": "node .\\_runner.js",
+    "target-test-sol": "node .\\_runner.js -path .\\testWPs\\TestSolution\\"
   },
   "keywords": [],
   "author": "",
