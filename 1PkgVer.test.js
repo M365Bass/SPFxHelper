@@ -9,13 +9,6 @@ beforeEach(() => {
 test("1PkgVer Test", () => {
   const dataAfter = fs.readFileSync(gulpfilePath, "utf8");
 
-  const gulpDotJS = fs.readFileSync(".\\Sources\\gulp.js", "utf8");
-
-  const x = dataAfter.indexOf(
-    "pkgSolution.solution.version = newVersionNumber;"
-  );
-  console.log(x);
-
   expect(dataAfter).toContain(
     "pkgSolution.solution.version = newVersionNumber;"
   );
