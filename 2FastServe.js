@@ -22,9 +22,7 @@ function FastServe() {
 
   const options = program.opts();
 
-  const filePath = options.Path;
-  var onlyPath = require("path").dirname(filePath);
-  chdir(onlyPath);
+  chdir(options.Path);
   console.log(cwd());
 
   console.log(`spfx-fast-serve`);

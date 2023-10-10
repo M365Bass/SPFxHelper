@@ -6,7 +6,7 @@ beforeEach(() => {
   execSync(`node .\\1PkgVer.js -path ${gulpfilePath}`);
 });
 
-test("File changed", () => {
+test("1PkgVer Test", () => {
   const dataAfter = fs.readFileSync(gulpfilePath, "utf8");
 
   const gulpDotJS = fs.readFileSync(".\\Sources\\gulp.js", "utf8");
