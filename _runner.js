@@ -19,7 +19,7 @@ function runner() {
       console.log("Path contains gulpfile.js");
     } else {
       console.log(
-        "Path does not contain gulpfile.js, please run again with a different path."
+        "Path does not contain gulpfile.js, please run again with a different path.",
       );
       process.exit();
     }

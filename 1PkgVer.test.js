@@ -10,7 +10,7 @@ test("1PkgVer Test", () => {
   const dataAfter = fs.readFileSync(gulpfilePath, "utf8");
 
   expect(dataAfter).toContain(
-    "pkgSolution.solution.version = newVersionNumber;"
+    "pkgSolution.solution.version = newVersionNumber;",
   );
 });
 

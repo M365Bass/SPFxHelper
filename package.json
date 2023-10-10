@@ -2,16 +2,16 @@
   "name": "spfxhelper",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "automate.js",
   "scripts": {
-    "test": "jest",
-    "test-seq": "jest --runInBand",
     "init": "node .\\_runner.js",
-    "target-test-sol": "node .\\_runner.js -path .\\testWPs\\TestSolution\\"
+    "target-test-sol": "node .\\_runner.js -path .\\testWPs\\TestSolution\\",
+    "test": "jest",
+    "test-seq": "jest --runInBand"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "commander": "^11.0.0",
     "figlet": "^1.6.0"
