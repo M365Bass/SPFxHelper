@@ -1,13 +1,13 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
 
-const path = ".\\testWPs\\TestSolution\\gulpfile.js";
+const gulpfilePath = ".\\testWPs\\TestSolution\\gulpfile.js";
 beforeEach(() => {
-  execSync(`node .\\1PkgVer.js -path ${path}`);
+  execSync(`node .\\1PkgVer.js -path ${gulpfilePath}`);
 });
 
 test("File changed", () => {
-  const dataAfter = fs.readFileSync(path, "utf8");
+  const dataAfter = fs.readFileSync(gulpfilePath, "utf8");
 
   const gulpDotJS = fs.readFileSync(".\\Sources\\gulp.js", "utf8");
 
@@ -22,5 +22,5 @@ test("File changed", () => {
 });
 
 afterEach(() => {
-  execSync(`git checkout --  ${path}`);
+  execSync(`git checkout --  ${gulpfilePath}`);
 });
