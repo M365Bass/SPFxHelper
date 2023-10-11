@@ -1,6 +1,7 @@
 var fs = require("fs");
 const { Command } = require("commander");
 const execSync = require("child_process").execSync;
+const CHLK = require("./Utils/ChalkHelper");
 
 function PkgVer() {
   const program = new Command();
@@ -19,13 +20,13 @@ function PkgVer() {
 
   const source2 = 'build.initialize(require("gulp"));';
   fs.readFile(".\\Sources\\gulp.js", "utf8", function (err, data) {
-    if (err) return console.log(err);
+    if (err) return CHLK.ChalkError(err);
 
     const source = [source1, source2];
     const replacement = [replacement1, data];
 
     fs.readFile(gulpfilePath, "utf8", function (err, data) {
-      if (err) return console.log(err);
+      if (err) return CHLK.ChalkError(err);
 
       if (source.length === replacement.length) {
         var result = data.replace(source[0], replacement[0]);
@@ -37,12 +38,12 @@ function PkgVer() {
       }
 
       fs.writeFile(gulpfilePath, result, "utf8", function (err) {
-        if (err) return console.log(err);
+        if (err) return CHLK.ChalkError(err);
       });
     });
 
     setTimeout(function () {
-      console.log(`npx prettier ${gulpfilePath} --write`);
+      CHLK.ChalkMessage(`npx prettier ${gulpfilePath} --write`);
       execSync(`npx prettier ${gulpfilePath} --write`);
     }, 2000);
   });
