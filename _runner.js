@@ -2,6 +2,7 @@ function runner() {
   const { Command } = require("commander");
   const fs = require("fs");
   const execSync = require("child_process").execSync;
+  const CHLK = require("./Utils/ChalkHelper");
 
   const program = new Command();
   program
@@ -16,10 +17,10 @@ function runner() {
     throw new Error("Path is a required parameter");
   } else {
     if (fs.existsSync(gulpfilePath)) {
-      console.log("Path contains gulpfile.js");
+      CHLK.ChalkSuccess("Path contains gulpfile.js");
     } else {
-      console.log(
-        "Path does not contain gulpfile.js, please run again with a different path.",
+      CHLK.ChalkError(
+        "Path does not contain gulpfile.js, please run again with a different path."
       );
       process.exit();
     }
@@ -28,12 +29,13 @@ function runner() {
   const commands = [
     `node 1PkgVer.js -path ` + gulpfilePath,
     `node 2FastServe.js -path ` + options.Path,
-    `npm list -g --depth=0`,
+    // `npm list -g --depth=0`,
   ];
 
   for (let index = 0; index < commands.length; index++) {
     const command = commands[index];
-    console.log(command);
+
+    CHLK.ChalkMessage(command);
     execSync(command, { stdio: "inherit" });
   }
 }
