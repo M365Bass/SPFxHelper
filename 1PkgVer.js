@@ -2,6 +2,7 @@ var fs = require("fs");
 const { Command } = require("commander");
 const execSync = require("child_process").execSync;
 const CHLK = require("./Utils/ChalkHelper");
+const path = require("path");
 
 function PkgVer() {
   const program = new Command();
@@ -19,7 +20,9 @@ function PkgVer() {
     'const build = require("@microsoft/sp-build-web");';
 
   const source2 = 'build.initialize(require("gulp"));';
-  fs.readFile(".\\Sources\\gulp.js", "utf8", function (err, data) {
+
+  const gulpSourceFile = path.join(__dirname, "\\Sources\\gulp.js");
+  fs.readFile(gulpSourceFile, "utf8", function (err, data) {
     if (err) return CHLK.ChalkError(err);
 
     const source = [source1, source2];

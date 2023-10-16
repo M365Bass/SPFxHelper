@@ -1,8 +1,11 @@
+#!/usr/bin/env node
+
 function runner() {
   const { Command } = require("commander");
   const fs = require("fs");
   const execSync = require("child_process").execSync;
   const CHLK = require("./Utils/ChalkHelper");
+  const path = require("path");
 
   const program = new Command();
   program
@@ -27,15 +30,15 @@ function runner() {
   }
 
   const commands = [
-    `node 1PkgVer.js -path ` + gulpfilePath,
-    `node 2FastServe.js -path ` + options.Path,
+    `node ` + path.join(__dirname, "1PkgVer.js") + ` -path ` + gulpfilePath,
+    `node ` + path.join(__dirname, "2FastServe.js") + ` -path ` + options.Path,
     // `npm list -g --depth=0`,
   ];
 
   for (let index = 0; index < commands.length; index++) {
     const command = commands[index];
 
-    CHLK.ChalkMessage(command);
+    CHLK.ChalkSuccess("Running " + command);
     execSync(command, { stdio: "inherit" });
   }
 }

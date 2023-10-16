@@ -5,7 +5,9 @@
   "keywords": [],
   "license": "ISC",
   "author": "",
-  "main": "automate.js",
+  "bin": {
+    "spfxhelper": "./_runner.js"
+  },
   "scripts": {
     "init": "node .\\_runner.js",
     "target-test-sol": "node .\\_runner.js -path .\\testWPs\\TestSolution\\",
