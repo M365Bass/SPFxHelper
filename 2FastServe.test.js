@@ -1,7 +1,7 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
 
-const path = ".\\testWPs\\TestSolution\\";
+const path = ".\\testWPs\\TestSoln\\";
 
 beforeEach(() => {
   execSync(`node .\\2FastServe.js -path ${path}`);

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
 
-const gulpfilePath = ".\\testWPs\\TestSolution\\gulpfile.js";
+const gulpfilePath = ".\\testWPs\\TestSoln\\gulpfile.js";
 beforeEach(() => {
   execSync(`node .\\1PkgVer.js -path ${gulpfilePath}`);
 });

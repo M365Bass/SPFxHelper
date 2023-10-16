@@ -10,7 +10,6 @@
   },
   "scripts": {
     "init": "node .\\_runner.js",
-    "target-test-sol": "node .\\_runner.js -path .\\testWPs\\TestSolution\\",
     "test": "jest",
     "test-seq": "jest --runInBand"
   },
