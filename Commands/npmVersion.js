@@ -1,19 +1,8 @@
 var fs = require("fs");
-const { Command } = require("commander");
-const execSync = require("child_process").execSync;
-const CHLK = require("./Utils/ChalkHelper");
+const ChalkHelper = require("../Utils/ChalkHelper");
 const path = require("path");
 
-function PkgVer() {
-  const program = new Command();
-
-  program
-    .option("-path [value]", "provide webpart folder path")
-    .parse(process.argv);
-
-  const options = program.opts();
-
-  const gulpfilePath = options.Path;
+module.exports = function (gulpfilePath) {
   const source1 = `const build = require('@microsoft/sp-build-web');`;
   const replacement1 =
     'const gulp = require("gulp");\n' +
@@ -21,15 +10,15 @@ function PkgVer() {
 
   const source2 = `build.initialize(require('gulp'));`;
 
-  const gulpSourceFile = path.join(__dirname, "\\Sources\\gulp.js");
+  const gulpSourceFile = path.join(__dirname, "..\\Sources\\gulp.js");
   fs.readFile(gulpSourceFile, "utf8", function (err, gulpSourceFileData) {
-    if (err) return CHLK.ChalkError(err);
+    if (err) return ChalkHelper.ChalkError(err);
 
     const source = [source1, source2];
     const replacement = [replacement1, gulpSourceFileData];
 
     fs.readFile(gulpfilePath, "utf8", function (err, gulpfilePathData) {
-      if (err) return CHLK.ChalkError(err);
+      if (err) return ChalkHelper.ChalkError(err);
 
       if (source.length === replacement.length) {
         var result = gulpfilePathData.replace(source1, replacement1);
@@ -37,11 +26,8 @@ function PkgVer() {
       }
 
       fs.writeFile(gulpfilePath, result2, "utf8", function (err) {
-        if (err) return CHLK.ChalkError(err);
+        if (err) return ChalkHelper.ChalkError(err);
       });
     });
   });
-}
-
-module.exports = PkgVer;
-PkgVer();
+};
