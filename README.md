@@ -1,21 +1,9 @@
 # SPFxHelper
 
-Helper to automate steps after initialising a new SPFx project
+Helper to automate steps after initialising a new SPFx project. Currently supports [ SPFx Fast Serve](https://github.com/s-KaiNet/spfx-fast-serve) and [Sync Version](https://n8d.at/how-to-version-new-sharepoint-framework-projects)
 
-# Manual tests
+# Disclaimer
 
-- Run from SPFxHelper with full path to WebPart folder
+I built this as I repeatidly do these things every time I start a new project.
 
-  `node .\index.js -fs -nv -p C:\Users\basse\code\SPFxHelper\testWPs\TestSoln\`
-
-- Run from SPFxHelper with relative path to WebPart folder
-
-  `node .\index.js -fs -nv -p .\testWPs\TestSoln\`
-
-- Run from WebPart folder with no path
-
-  `node ..\..\index.js -nv -fs`
-
-- Run from WebPart folder with relative path .
-
-  `node ..\..\index.js -nv -fs -p .`
+The intent is to have as many 'independent' commands to cover the most common scenarios.
