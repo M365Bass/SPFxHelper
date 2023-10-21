@@ -1,5 +1,6 @@
 const gulpfilePath = require("path").resolve(
-  ".\\testWPs\\TestSoln\\gulpfile.js"
+  ".\\testWPs\\TestSoln",
+  "gulpfile.js"
 );
 console.log(gulpfilePath);
 
