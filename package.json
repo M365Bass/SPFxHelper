@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "commander": "^11.0.0",
-    "figlet": "^1.6.0"
+    "commander": "^11.0.0"
   },
   "devDependencies": {
     "jest": "^29.7.0"
