@@ -1,4 +1,4 @@
-# SPFxHelper
+# SPFx Jack
 
 Helper to automate steps after initialising a new SPFx project. Currently supports [ SPFx Fast Serve](https://github.com/s-KaiNet/spfx-fast-serve) and [Sync Version](https://n8d.at/how-to-version-new-sharepoint-framework-projects)
 

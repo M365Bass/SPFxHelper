@@ -1,10 +1,10 @@
 # Manual tests
 
-- Run from SPFxHelper with full path to WebPart folder
+- Run from command folder with full path to WebPart folder
 
-  `node .\index.js -fs -nv -p C:\Users\basse\code\SPFxHelper\testWPs\TestSoln\`
+  `node .\index.js -fs -nv -p C:\Users\basse\code\spfx-jack\testWPs\TestSoln\`
 
-- Run from SPFxHelper with relative path to WebPart folder
+- Run from command folder with relative path to WebPart folder
 
   `node .\index.js -fs -nv -p .\testWPs\TestSoln\`
 

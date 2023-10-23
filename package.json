@@ -1,12 +1,12 @@
 {
-  "name": "spfxhelper",
+  "name": "spfx-jack",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "license": "ISC",
   "author": "",
   "bin": {
-    "spfxhelper": "./index.js"
+    "spfx-jack": "./index.js"
   },
   "scripts": {
     "test": "jest",
