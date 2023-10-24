@@ -1,4 +1,5 @@
 var fs = require("fs");
+const ChalkHelper = require("../Utils/ChalkHelper");
 
 module.exports = function (gulpfilePath) {
   const source1 = `const build = require('@microsoft/sp-build-web');`;
@@ -26,5 +27,10 @@ module.exports = function (gulpfilePath) {
     result2 = result.replace(source2, gulpSourceFileData);
   }
 
-  fs.writeFileSync(gulpfilePath, result2, "utf8");
+  if (result2 !== gulpfilePathData) {
+    fs.writeFileSync(gulpfilePath, result2, "utf8");
+    ChalkHelper.ChalkSuccess(`gulpfile updated with npm version script`);
+  } else {
+    ChalkHelper.ChalkWarning(`gulpfile already contains npm version script`);
+  }
 };

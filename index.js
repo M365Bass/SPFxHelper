@@ -18,8 +18,6 @@ program
   .parse(process.argv);
 
 const options = program.opts();
-console.log("options");
-console.log(options);
 
 let path;
 if (options.path) {
@@ -34,18 +32,14 @@ if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
   );
   process.exit(1);
 }
-ChalkHelper.ChalkSuccess("SPFx folder path with gulpfile.js");
+ChalkHelper.ChalkMessage("SPFx folder path with gulpfile.js");
 ChalkHelper.ChalkMessage(path);
 
 if (options.npmVersion) {
-  console.log("options.npmVersion");
-
   const pathWithGulpFileJS = resolve(path, "gulpfile.js");
-  console.log(pathWithGulpFileJS);
   npmVersionCommand(pathWithGulpFileJS);
 }
 
 if (options.fastServe) {
-  console.log("options.fastServe");
   fastServeCommand(path);
 }
