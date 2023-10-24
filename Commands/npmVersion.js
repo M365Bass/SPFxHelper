@@ -10,7 +10,9 @@ module.exports = function (gulpfilePath) {
 
   const gulpSourceFile = require("path").join(
     __dirname,
-    "..\\Sources\\gulp.js"
+    "..",
+    "Sources",
+    "gulp.js"
   );
   const gulpSourceFileData = fs.readFileSync(gulpSourceFile, "utf8");
 

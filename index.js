@@ -28,7 +28,7 @@ if (options.path) {
   path = process.cwd();
 }
 
-if (!fs.existsSync(resolve(path, "gulpfile.js"))) {
+if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
   ChalkHelper.ChalkError(
     "path not found or does not contain gulpfile.js, exiting with code 1"
   );

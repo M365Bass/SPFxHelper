@@ -4,7 +4,7 @@ const ChalkHelper = require("../Utils/ChalkHelper");
 module.exports = function (folderPath) {
   if (
     !require("fs").existsSync(
-      require("path").join(folderPath, "fast-serve\\config.json")
+      require("path").join(folderPath, "fast-serve", "config.json")
     )
   ) {
     ChalkHelper.ChalkMessage(`Running npm list -g --depth=0`);
@@ -17,11 +17,7 @@ module.exports = function (folderPath) {
       ChalkHelper.ChalkMessage("spfx-fast-serve already installed globally");
     }
 
-    console.log("__dirname before");
-    console.log(__dirname);
     require("node:process").chdir(folderPath);
-    console.log("__dirname after");
-    console.log(__dirname);
     ChalkHelper.ChalkMessage(`Running spfx-fast-serve`);
     execSync(`spfx-fast-serve`);
   } else {

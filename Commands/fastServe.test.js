@@ -2,7 +2,11 @@ const fs = require("fs");
 const execSync = require("child_process").execSync;
 const resolve = require("path").resolve;
 
-const folderPath = resolve(".\\testWPs\\TestSoln");
+const folderPath = require("path").join(
+  require("process").cwd(),
+  "testWPs",
+  "TestSoln"
+);
 console.log("folderPath fastServe");
 console.log(folderPath);
 

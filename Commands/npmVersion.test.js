@@ -1,6 +1,8 @@
 const gulpfilePath = require("path").join(
   __dirname,
-  "..\\testWPs\\TestSoln",
+  "..",
+  "testWPs",
+  "TestSoln",
   "gulpfile.js"
 );
 console.log(gulpfilePath);
