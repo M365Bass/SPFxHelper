@@ -12,6 +12,10 @@ exports.ChalkWarning = function (message) {
   console.log(chalk.yellow(message));
 };
 
-exports.ChalkError = function (message) {
-  console.log(chalk.red("Error - " + message));
+exports.ChalkError = function (message, useExitCodeSuffix = false) {
+  if (useExitCodeSuffix) {
+    console.log(chalk.red("Error - " + message + ", exiting with code 1"));
+  } else {
+    console.log(chalk.red("Error - " + message));
+  }
 };
