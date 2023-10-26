@@ -37,6 +37,10 @@ if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
 ChalkHelper.ChalkMessage("SPFx folder path with gulpfile.js");
 ChalkHelper.ChalkMessage(path);
 
+if (options.gitInit) {
+  gitInitCommand(path);
+}
+
 if (options.npmVersion) {
   const pathWithGulpFileJS = resolve(path, "gulpfile.js");
   npmVersionCommand(pathWithGulpFileJS);
@@ -44,8 +48,4 @@ if (options.npmVersion) {
 
 if (options.fastServe) {
   fastServeCommand(path);
-}
-
-if (options.gitInit) {
-  gitInitCommand(path);
 }
