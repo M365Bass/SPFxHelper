@@ -2,7 +2,10 @@
   "name": "spfx-jack",
   "version": "1.0.6",
   "description": "Helper to automate steps after initialising a new SPFx project",
-  "keywords": [],
+  "keywords": [
+    "SharePoint",
+    "SPFx"
+  ],
   "license": "ISC",
   "author": "",
   "bin": {
