@@ -6,6 +6,7 @@ const resolve = require("path").resolve;
 const ChalkHelper = require("./Utils/ChalkHelper");
 const npmVersionCommand = require("./Commands/npmVersion");
 const fastServeCommand = require("./Commands/fastServe");
+const gitInitCommand = require("./Commands/gitInit");
 
 const program = new Command();
 
@@ -15,6 +16,7 @@ program
   .option("-p, --path <value>", "path")
   .option("-nv, --npm-version", "NPM version")
   .option("-fs, --fast-serve", "Fast Serve")
+  .option("-gi, --git-init", "git init")
   .parse(process.argv);
 
 const options = program.opts();
@@ -42,4 +44,8 @@ if (options.npmVersion) {
 
 if (options.fastServe) {
   fastServeCommand(path);
+}
+
+if (options.gitInit) {
+  gitInitCommand(path);
 }
