@@ -1,8 +1,8 @@
 const fs = require("fs");
-const folderPath = require("./Utils/folderPath").folderPath();
+const parentFolderPath = require("./Utils/folderPaths").parentFolderPath();
 
 module.exports = function () {
-  fs.rmSync(folderPath, {
+  fs.rmSync(parentFolderPath, {
     recursive: true,
     force: true,
   });

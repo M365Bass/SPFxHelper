@@ -1,12 +1,10 @@
 const fs = require("fs");
-const os = require("os");
 const execSync = require("child_process").execSync;
-const join = require("path").join;
-const folderPath = require("./Utils/folderPath").folderPath();
+const parentFolderPath = require("./Utils/folderPaths").parentFolderPath();
 
 module.exports = function () {
-  fs.mkdirSync(folderPath, { recursive: true });
-  process.chdir(folderPath);
+  fs.mkdirSync(parentFolderPath, { recursive: true });
+  process.chdir(parentFolderPath);
   execSync(
     'yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"' +
       ' --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" ',

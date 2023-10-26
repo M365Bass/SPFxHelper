@@ -1,23 +1,18 @@
-const gulpfilePath = require("path").join(
-  __dirname,
-  "..",
-  "testWPs",
-  "TestSoln",
-  "gulpfile.js"
-);
+const fs = require("fs");
+const join = require("path").join;
+const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
+const npmVersionCommand = require("./npmVersion");
+
+const gulpfilePath = join(wpFolderPath, "gulpfile.js");
 console.log(gulpfilePath);
 
 beforeEach(() => {
-  require("./npmVersion")(gulpfilePath);
+  npmVersionCommand(gulpfilePath);
 });
 
 test("Gulp file updated with 'pkgSolution.solution.version = newVersionNumber' after npmVersionCommand runs", () => {
-  const gulpfilePathData = require("fs").readFileSync(gulpfilePath, "utf8");
+  const gulpfilePathData = fs.readFileSync(gulpfilePath, "utf8");
   expect(gulpfilePathData).toContain(
     "pkgSolution.solution.version = newVersionNumber;"
   );
-});
-
-afterEach(() => {
-  require("child_process").execSync(`git checkout -- ${gulpfilePath}`);
 });
