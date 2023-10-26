@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 const chalk = require("chalk");
 
 exports.ChalkMessage = function (message) {
