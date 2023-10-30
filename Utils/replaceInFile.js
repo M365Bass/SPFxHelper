@@ -13,12 +13,14 @@ module.exports = function (
 
   const fileData = fs.readFileSync(filePath, "utf8");
 
-  var result = fileData.replace(textToReplace, replacementText);
+  if (fileData.indexOf(replacementText) !== -1) {
+    var result = fileData.replace(textToReplace, replacementText);
 
-  if (result !== fileData) {
-    fs.writeFileSync(filePath, result, "utf8");
-    ChalkHelper.ChalkSuccess(successMessage);
-  } else {
-    ChalkHelper.ChalkWarning(WarningMessage);
+    if (result !== fileData) {
+      fs.writeFileSync(filePath, result, "utf8");
+      ChalkHelper.ChalkSuccess(successMessage);
+    } else {
+      ChalkHelper.ChalkWarning(WarningMessage);
+    }
   }
 };
