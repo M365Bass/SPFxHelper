@@ -7,6 +7,7 @@ const ChalkHelper = require("./Utils/ChalkHelper");
 const npmVersionCommand = require("./Commands/npmVersion");
 const fastServeCommand = require("./Commands/fastServe");
 const gitInitCommand = require("./Commands/gitInit");
+const sortPackageCommand = require("./Commands/sortPackage");
 
 const program = new Command();
 
@@ -17,6 +18,7 @@ program
   .option("-nv, --npm-version", "NPM version")
   .option("-fs, --fast-serve", "Fast Serve")
   .option("-gi, --git-init", "git init")
+  .option("-sp, --sort-package", "sort Package JSON")
   .parse(process.argv);
 
 const options = program.opts();
@@ -34,7 +36,7 @@ if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
   );
   process.exit(1);
 }
-ChalkHelper.ChalkMessage("SPFx folder path with gulpfile.js");
+ChalkHelper.ChalkMessage("SPFx folder path");
 ChalkHelper.ChalkMessage(path);
 
 if (options.gitInit) {
@@ -42,10 +44,13 @@ if (options.gitInit) {
 }
 
 if (options.npmVersion) {
-  const pathWithGulpFileJS = resolve(path, "gulpfile.js");
-  npmVersionCommand(pathWithGulpFileJS);
+  npmVersionCommand(resolve(path, "gulpfile.js"));
 }
 
 if (options.fastServe) {
   fastServeCommand(path);
+}
+
+if (options.sortPackage) {
+  sortPackageCommand(resolve(path, "package.json"));
 }
