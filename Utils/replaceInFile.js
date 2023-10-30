@@ -1,13 +1,16 @@
 var fs = require("fs");
-const ChalkHelper = require("../Utils/ChalkHelper");
+const ChalkHelper = require("./ChalkHelper");
 
 module.exports = function (
+  initialMessage,
   filePath,
   textToReplace,
   replacementText,
   successMessage,
   WarningMessage
 ) {
+  ChalkHelper.ChalkMessage(initialMessage);
+
   const fileData = fs.readFileSync(filePath, "utf8");
 
   var result = fileData.replace(textToReplace, replacementText);
