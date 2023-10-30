@@ -3,7 +3,11 @@
 const { Command } = require("commander");
 const fs = require("fs");
 const resolve = require("path").resolve;
+
 const ChalkHelper = require("./Utils/ChalkHelper");
+const executeCommand = require("./Utils/executeCommand");
+const gitCommit = require("./Utils/gitCommit");
+
 const npmVersionCommand = require("./Commands/npmVersion");
 const fastServeCommand = require("./Commands/fastServe");
 const gitInitCommand = require("./Commands/gitInit");
@@ -39,18 +43,23 @@ if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
 ChalkHelper.ChalkMessage("SPFx folder path");
 ChalkHelper.ChalkMessage(path);
 
+let gitInstalled;
 if (options.gitInit) {
-  gitInitCommand(path);
+  gitInstalled = gitInitCommand(path);
+  gitInstalled && gitCommit("gitInit");
 }
 
 if (options.npmVersion) {
   npmVersionCommand(resolve(path, "gulpfile.js"));
+  gitInstalled && gitCommit("npmVersion");
 }
 
 if (options.fastServe) {
   fastServeCommand(path);
+  gitInstalled && gitCommit("fastServe");
 }
 
 if (options.sortPackage) {
   sortPackageCommand(resolve(path, "package.json"));
+  gitInstalled && gitCommit("sortPackage");
 }
