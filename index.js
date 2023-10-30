@@ -34,7 +34,7 @@ if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
   );
   process.exit(1);
 }
-ChalkHelper.ChalkMessage("SPFx folder path with gulpfile.js");
+ChalkHelper.ChalkMessage("SPFx folder path");
 ChalkHelper.ChalkMessage(path);
 
 if (options.gitInit) {
