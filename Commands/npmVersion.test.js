@@ -4,7 +4,6 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 const npmVersionCommand = require("./npmVersion");
 
 const gulpfilePath = join(wpFolderPath, "gulpfile.js");
-console.log(gulpfilePath);
 
 beforeEach(() => {
   npmVersionCommand(gulpfilePath);

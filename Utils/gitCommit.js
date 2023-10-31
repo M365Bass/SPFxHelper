@@ -6,7 +6,7 @@ module.exports = function (commitMessage) {
   try {
     execSync("git add .", { stdio: [] });
     execSync('git commit -m "' + commitMessage + '"', { stdio: [] });
-    ChalkHelper.ChalkSuccess("git initialisation completed");
+    ChalkHelper.ChalkSuccess("git commit: " + commitMessage);
   } catch (error) {
     try {
       error.stdout.toString().indexOf("nothing to commit, working tree clean");

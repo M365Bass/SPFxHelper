@@ -5,7 +5,6 @@ const sortPackage = require("./sortPackage");
 const sortObject = require("sort-object-keys");
 
 const packageJSON_filePath = join(wpFolderPath, "package.json");
-console.log(packageJSON_filePath);
 
 beforeEach(() => {
   packageJSON_beforeChanges = fs.readFileSync(packageJSON_filePath, "utf8");
@@ -21,8 +20,6 @@ test("Package.json file sorted", () => {
   depsBefore = JSON.parse(packageJSON_beforeChanges).dependencies;
   depsAfter = JSON.parse(packageJSON_afterChanges).dependencies;
 
-  console.log(depsBefore);
-  console.log(depsAfter);
   expect(sortObject(depsBefore)).toEqual(depsAfter);
 });
 
