@@ -24,7 +24,9 @@ module.exports = function (gulpfilePath) {
 
   if (source.length === replacement.length) {
     var result = gulpfilePathData.replace(source1, replacement1);
-    result2 = result.replace(source2, gulpSourceFileData);
+    if (result.indexOf("/* end of npm version */") === -1)
+      result2 = result.replace(source2, gulpSourceFileData);
+    else result2 = result;
   }
 
   if (result2 !== gulpfilePathData) {
