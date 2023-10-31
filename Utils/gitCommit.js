@@ -4,7 +4,8 @@ const ChalkHelper = require("./ChalkHelper");
 
 module.exports = function (commitMessage) {
   try {
-    execSync('git add .; git commit -m "' + commitMessage + '"');
+    execSync("git add .", { stdio: [] });
+    execSync('git commit -m "' + commitMessage + '"', { stdio: [] });
     ChalkHelper.ChalkSuccess("git initialisation completed");
   } catch (error) {
     try {
