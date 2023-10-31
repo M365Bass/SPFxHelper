@@ -13,7 +13,7 @@ module.exports = function (
 
   const fileData = fs.readFileSync(filePath, "utf8");
 
-  if (fileData.indexOf(replacementText) !== -1) {
+  if (fileData.indexOf(replacementText) === -1) {
     var result = fileData.replace(textToReplace, replacementText);
 
     if (result !== fileData) {
@@ -22,5 +22,7 @@ module.exports = function (
     } else {
       ChalkHelper.ChalkWarning(WarningMessage);
     }
+  } else {
+    ChalkHelper.ChalkWarning(WarningMessage);
   }
 };
