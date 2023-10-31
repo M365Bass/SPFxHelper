@@ -5,6 +5,9 @@ const wpFolderPath = require("./Utils/folderPaths").wpFolderPath();
 
 module.exports = function () {
   fs.mkdirSync(parentFolderPath, { recursive: true });
+  execSync("npm install gulp-cli yo @microsoft/generator-sharepoint --global", {
+    stdio: [],
+  });
   process.chdir(parentFolderPath);
   execSync(
     'yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"' +
