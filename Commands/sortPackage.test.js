@@ -28,3 +28,7 @@ test("Package.json file updated with postinstall script for sort-package-json", 
     '"postinstall": "npx sort-package-json"'
   );
 });
+
+test("fails", () => {
+  expect(false).toBeTruthy();
+});
