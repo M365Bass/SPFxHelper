@@ -1,11 +1,15 @@
 var fs = require("fs");
 const ChalkHelper = require("./ChalkHelper");
 
+/**
+ * @param checkString string to check if exists before replace occurs
+ */
 module.exports = function (
   initialMessage,
   filePath,
   textToReplace,
   replacementText,
+  checkString,
   successMessage,
   WarningMessage
 ) {
@@ -13,7 +17,7 @@ module.exports = function (
 
   const fileData = fs.readFileSync(filePath, "utf8");
 
-  if (fileData.indexOf(replacementText) === -1) {
+  if (fileData.indexOf(checkString) === -1) {
     var result = fileData.replace(textToReplace, replacementText);
 
     if (result !== fileData) {

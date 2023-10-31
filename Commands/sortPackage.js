@@ -13,6 +13,7 @@ module.exports = function (packageJSON_filePath) {
     packageJSON_filePath,
     '"scripts": {',
     '"scripts": {\n' + '"postinstall": "npx sort-package-json",\n',
+    'postinstall": "npx sort-package-json',
     `gulpfile updated with npx sort-package-json`,
     `gulpfile already contains npx sort-package-json`
   );
