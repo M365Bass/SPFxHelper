@@ -12,6 +12,7 @@ const npmVersionCommand = require("./Commands/npmVersion");
 const fastServeCommand = require("./Commands/fastServe");
 const gitInitCommand = require("./Commands/gitInit");
 const sortPackageCommand = require("./Commands/sortPackage");
+const prettierCommand = require("./Commands/prettier");
 
 const program = new Command();
 
@@ -23,6 +24,7 @@ program
   .option("-fs, --fast-serve", "Fast Serve")
   .option("-gi, --git-init", "git init")
   .option("-sp, --sort-package", "sort Package JSON")
+  .option("-pr, --prettier", "run prettier")
   .parse(process.argv);
 
 const options = program.opts();
@@ -62,4 +64,9 @@ if (options.fastServe) {
 if (options.sortPackage) {
   sortPackageCommand(resolve(path, "package.json"));
   gitInstalled && gitCommit("sortPackage");
+}
+
+if (options.prettier) {
+  prettierCommand(path);
+  gitInstalled && gitCommit("prettier");
 }
