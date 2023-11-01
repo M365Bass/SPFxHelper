@@ -12,7 +12,7 @@ module.exports = function (commitMessage) {
       error.stdout.toString().indexOf("nothing to commit, working tree clean");
     } catch (error) {
       chalk.Error("not able to commit to git");
-      fs.writeFileSync("err_git_commit.log", error.message, "utf8");
+      fs.writeFileSync("err_git_commit.log", error.message);
       chalk.Error(
         "Error details logged to err_git_commit.log in " + process.cwd()
       );

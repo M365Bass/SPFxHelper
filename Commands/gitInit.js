@@ -24,7 +24,7 @@ module.exports = function (folderPath) {
           chalk.Success("git initialisation completed");
         } catch (error) {
           chalk.Error("git was not initialised");
-          require("fs").writeFileSync("err.log", error.message, "utf8");
+          require("fs").writeFileSync("err.log", error.message);
           chalk.Error("Error details logged to err.log in " + process.cwd());
         }
       }

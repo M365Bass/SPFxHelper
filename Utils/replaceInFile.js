@@ -21,7 +21,7 @@ module.exports = function (
     var result = fileData.replace(textToReplace, replacementText);
 
     if (result !== fileData) {
-      fs.writeFileSync(filePath, result, "utf8");
+      fs.writeFileSync(filePath, result);
       chalk.Success(successMessage);
     } else {
       chalk.Warning(WarningMessage);

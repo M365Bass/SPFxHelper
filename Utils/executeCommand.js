@@ -10,7 +10,7 @@ module.exports = function (command, stdio = "pipe", resultStartsWith) {
       chalk.Success(command + " ran successfully");
   } catch (error) {
     chalk.Error(command + " did not run successfully");
-    fs.writeFileSync("err.log", error.message, "utf8");
+    fs.writeFileSync("err.log", error.message);
     chalk.Error("Error details logged to err.log in " + process.cwd());
   }
 };

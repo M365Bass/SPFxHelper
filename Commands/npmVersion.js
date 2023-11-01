@@ -30,7 +30,7 @@ module.exports = function (gulpfilePath) {
   }
 
   if (result2 !== gulpfilePathData) {
-    fs.writeFileSync(gulpfilePath, result2, "utf8");
+    fs.writeFileSync(gulpfilePath, result2);
     chalk.Success(`gulpfile updated with npm version script`);
   } else {
     chalk.Warning(`gulpfile already contains npm version script`);
