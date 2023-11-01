@@ -1,5 +1,5 @@
 const execSync = require("child_process").execSync;
-const ChalkHelper = require("../Utils/ChalkHelper");
+const chalk = require("../Utils/chalk");
 
 module.exports = function (folderPath) {
   if (
@@ -7,22 +7,22 @@ module.exports = function (folderPath) {
       require("path").join(folderPath, "fast-serve", "config.json")
     )
   ) {
-    ChalkHelper.ChalkMessage(`Running npm list -g --depth=0`);
+    chalk.Message(`Running npm list -g --depth=0`);
     const npmGlobalPackages = execSync(`npm list -g --depth=0`).toString();
 
     if (npmGlobalPackages.indexOf("spfx-fast-serve") === -1) {
-      ChalkHelper.ChalkMessage(`Installing spfx-fast-serve globally`);
+      chalk.Message(`Installing spfx-fast-serve globally`);
       execSync(`npm install spfx-fast-serve -g`);
-      ChalkHelper.ChalkSuccess(`spfx-fast-serve installed`);
+      chalk.Success(`spfx-fast-serve installed`);
     } else {
-      ChalkHelper.ChalkMessage("spfx-fast-serve already installed globally");
+      chalk.Message("spfx-fast-serve already installed globally");
     }
 
     require("node:process").chdir(folderPath);
-    ChalkHelper.ChalkMessage(`Running spfx-fast-serve`);
-    ChalkHelper.ChalkSuccess(`spfx-fast-serve config completed`);
+    chalk.Message(`Running spfx-fast-serve`);
+    chalk.Success(`spfx-fast-serve config completed`);
     execSync(`spfx-fast-serve`);
   } else {
-    ChalkHelper.ChalkWarning("spfx-fast-serve already configured");
+    chalk.Warning("spfx-fast-serve already configured");
   }
 };
