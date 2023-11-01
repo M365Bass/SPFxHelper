@@ -8,15 +8,16 @@ const parentWP_filePath = join(
   wpFolderPath,
   "src",
   "webparts",
-  "WebPart1",
+  "webPart1",
   "components",
   "WebPart1.tsx"
 );
+
 const componentWP_filePath = join(
   wpFolderPath,
   "src",
   "webparts",
-  "WebPart1",
+  "webPart1",
   "WebPart1WebPart.ts"
 );
 
