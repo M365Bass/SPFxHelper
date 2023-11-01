@@ -3,9 +3,9 @@
 const { Command } = require("commander");
 const fs = require("fs");
 const resolve = require("path").resolve;
+const join = require("path").join;
 
-const ChalkHelper = require("./Utils/ChalkHelper");
-const executeCommand = require("./Utils/executeCommand");
+const chalk = require("./Utils/chalk");
 const gitCommit = require("./Utils/gitCommit");
 
 const npmVersionCommand = require("./Commands/npmVersion");
@@ -36,14 +36,14 @@ if (options.path) {
   path = process.cwd();
 }
 
-if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
-  ChalkHelper.ChalkError(
+if (!fs.existsSync(join(path, "gulpfile.js"))) {
+  chalk.Error(
     "path not found or does not contain gulpfile.js, exiting with code 1"
   );
   process.exit(1);
 }
-ChalkHelper.ChalkMessage("SPFx folder path");
-ChalkHelper.ChalkMessage(path);
+chalk.Message("SPFx folder path");
+chalk.Message(path);
 
 let gitInstalled;
 if (options.gitInit) {

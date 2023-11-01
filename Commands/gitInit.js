@@ -1,39 +1,38 @@
 const execSync = require("child_process").execSync;
-const ChalkHelper = require("../Utils/ChalkHelper");
+const chalk = require("../Utils/chalk");
+const writeFileSync = require("fs").writeFileSync;
 
 module.exports = function (folderPath) {
   try {
-    ChalkHelper.ChalkMessage(`Checking whether git is installed`);
+    chalk.Message(`Checking whether git is installed`);
     if (execSync("git --version").toString().startsWith("git version")) {
-      ChalkHelper.ChalkSuccess(`git installed`);
+      chalk.Success(`git installed`);
 
       try {
-        ChalkHelper.ChalkMessage(`Checking whether git is initialised`);
+        chalk.Message(`Checking whether git is initialised`);
         process.chdir(folderPath);
         if (
           execSync("git status", { stdio: [] })
             .toString()
             .startsWith("On branch")
         ) {
-          ChalkHelper.ChalkWarning("git already initialised");
+          chalk.Warning("git already initialised");
         }
       } catch (error) {
         try {
-          ChalkHelper.ChalkMessage("git initialisation started");
+          chalk.Message("git initialisation started");
           execSync("git init -b main", { stdio: [] });
-          ChalkHelper.ChalkSuccess("git initialisation completed");
+          chalk.Success("git initialisation completed");
         } catch (error) {
-          ChalkHelper.ChalkError("git was not initialised");
-          require("fs").writeFileSync("err.log", error.message, "utf8");
-          ChalkHelper.ChalkError(
-            "Error details logged to err.log in " + process.cwd()
-          );
+          chalk.Error("git was not initialised");
+          writeFileSync("err.log", error.message);
+          chalk.Error("Error details logged to err.log in " + process.cwd());
         }
       }
     }
     return true;
   } catch (error) {
-    ChalkHelper.ChalkError(`git not installed, please install and retry`, true);
+    chalk.Error(`git not installed, please install and retry`, true);
     process.exit(1);
   }
 };

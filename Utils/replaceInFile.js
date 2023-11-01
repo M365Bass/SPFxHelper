@@ -1,5 +1,5 @@
-var fs = require("fs");
-const ChalkHelper = require("./ChalkHelper");
+const fs = require("fs");
+const chalk = require("./chalk");
 
 /**
  * @param checkString string to check if exists before replace occurs
@@ -13,7 +13,7 @@ module.exports = function (
   successMessage,
   WarningMessage
 ) {
-  ChalkHelper.ChalkMessage(initialMessage);
+  chalk.Message(initialMessage);
 
   const fileData = fs.readFileSync(filePath, "utf8");
 
@@ -21,12 +21,12 @@ module.exports = function (
     var result = fileData.replace(textToReplace, replacementText);
 
     if (result !== fileData) {
-      fs.writeFileSync(filePath, result, "utf8");
-      ChalkHelper.ChalkSuccess(successMessage);
+      fs.writeFileSync(filePath, result);
+      chalk.Success(successMessage);
     } else {
-      ChalkHelper.ChalkWarning(WarningMessage);
+      chalk.Warning(WarningMessage);
     }
   } else {
-    ChalkHelper.ChalkWarning(WarningMessage);
+    chalk.Warning(WarningMessage);
   }
 };

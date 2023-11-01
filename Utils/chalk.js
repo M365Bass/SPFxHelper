@@ -2,19 +2,19 @@
 
 const chalk = require("chalk");
 
-exports.ChalkMessage = function (message) {
+exports.Message = function (message) {
   if (!runningJest()) console.log(chalk.blue(message));
 };
 
-exports.ChalkSuccess = function (message) {
+exports.Success = function (message) {
   if (!runningJest()) console.log(chalk.green("Success - " + message));
 };
 
-exports.ChalkWarning = function (message) {
+exports.Warning = function (message) {
   if (!runningJest()) console.log(chalk.yellow(message));
 };
 
-exports.ChalkError = function (message, useExitCodeSuffix = false) {
+exports.Error = function (message, useExitCodeSuffix = false) {
   if (!runningJest())
     if (useExitCodeSuffix) {
       console.log(chalk.red("Error - " + message + ", exiting with code 1"));

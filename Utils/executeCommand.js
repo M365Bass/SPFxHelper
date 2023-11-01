@@ -1,18 +1,16 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
-const ChalkHelper = require("../Utils/ChalkHelper");
+const chalk = require("../Utils/chalk");
 
 module.exports = function (command, stdio = "pipe", resultStartsWith) {
-  ChalkHelper.ChalkMessage("Running " + command);
+  chalk.Message("Running " + command);
 
   try {
     if (execSync(command).toString().startsWith(resultStartsWith))
-      ChalkHelper.ChalkSuccess(command + " ran successfully");
+      chalk.Success(command + " ran successfully");
   } catch (error) {
-    ChalkHelper.ChalkError(command + " did not run successfully");
-    fs.writeFileSync("err.log", error.message, "utf8");
-    ChalkHelper.ChalkError(
-      "Error details logged to err.log in " + process.cwd()
-    );
+    chalk.Error(command + " did not run successfully");
+    fs.writeFileSync("err.log", error.message);
+    chalk.Error("Error details logged to err.log in " + process.cwd());
   }
 };
