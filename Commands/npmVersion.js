@@ -1,5 +1,6 @@
 var fs = require("fs");
 const chalk = require("../Utils/chalk");
+const join = require("path").join;
 
 module.exports = function (gulpfilePath) {
   const source1 = `const build = require('@microsoft/sp-build-web');`;
@@ -9,12 +10,7 @@ module.exports = function (gulpfilePath) {
 
   const source2 = `build.initialize(require('gulp'));`;
 
-  const gulpSourceFile = require("path").join(
-    __dirname,
-    "..",
-    "Sources",
-    "gulp.js"
-  );
+  const gulpSourceFile = join(__dirname, "..", "Sources", "gulp.js");
   const gulpSourceFileData = fs.readFileSync(gulpSourceFile, "utf8");
 
   const source = [source1, source2];

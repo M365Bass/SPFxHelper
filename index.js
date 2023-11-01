@@ -3,9 +3,9 @@
 const { Command } = require("commander");
 const fs = require("fs");
 const resolve = require("path").resolve;
+const join = require("path").join;
 
 const chalk = require("./Utils/chalk");
-const executeCommand = require("./Utils/executeCommand");
 const gitCommit = require("./Utils/gitCommit");
 
 const npmVersionCommand = require("./Commands/npmVersion");
@@ -36,7 +36,7 @@ if (options.path) {
   path = process.cwd();
 }
 
-if (!fs.existsSync(require("path").join(path, "gulpfile.js"))) {
+if (!fs.existsSync(join(path, "gulpfile.js"))) {
   chalk.Error(
     "path not found or does not contain gulpfile.js, exiting with code 1"
   );

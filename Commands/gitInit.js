@@ -1,5 +1,6 @@
 const execSync = require("child_process").execSync;
 const chalk = require("../Utils/chalk");
+const writeFileSync = require("fs").writeFileSync;
 
 module.exports = function (folderPath) {
   try {
@@ -24,7 +25,7 @@ module.exports = function (folderPath) {
           chalk.Success("git initialisation completed");
         } catch (error) {
           chalk.Error("git was not initialised");
-          require("fs").writeFileSync("err.log", error.message);
+          writeFileSync("err.log", error.message);
           chalk.Error("Error details logged to err.log in " + process.cwd());
         }
       }

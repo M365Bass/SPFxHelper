@@ -1,12 +1,10 @@
+const join = require("path").join;
+const existsSync = require("fs").existsSync;
 const execSync = require("child_process").execSync;
 const chalk = require("../Utils/chalk");
 
 module.exports = function (folderPath) {
-  if (
-    !require("fs").existsSync(
-      require("path").join(folderPath, "fast-serve", "config.json")
-    )
-  ) {
+  if (!existsSync(join(folderPath, "fast-serve", "config.json"))) {
     chalk.Message(`Running npm list -g --depth=0`);
     const npmGlobalPackages = execSync(`npm list -g --depth=0`).toString();
 
@@ -18,7 +16,7 @@ module.exports = function (folderPath) {
       chalk.Message("spfx-fast-serve already installed globally");
     }
 
-    require("node:process").chdir(folderPath);
+    process.chdir(folderPath);
     chalk.Message(`Running spfx-fast-serve`);
     chalk.Success(`spfx-fast-serve config completed`);
     execSync(`spfx-fast-serve`);
