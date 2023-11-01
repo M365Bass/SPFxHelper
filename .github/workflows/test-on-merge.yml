@@ -22,4 +22,4 @@ jobs:
         with:
           node-version: ${{ matrix.version }}
       - run: npm ci
-      - run: npm test
+      - run: npm run test-seq
