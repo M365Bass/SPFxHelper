@@ -1,6 +1,6 @@
 const fs = require("fs");
 const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
-const fastServeCommand = require("./fastServe");
+const fastServeCommand = require("../Commands/fastServe");
 const resolve = require("path").resolve;
 
 beforeEach(() => {

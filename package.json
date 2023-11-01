@@ -25,8 +25,8 @@
     "jest": "^29.7.0"
   },
   "jest": {
-    "globalSetup": "./jest-setup.js",
-    "globalTeardown": "./jest-tear-down.js",
-    "testSequencer": "./jest-sequencer.js"
+    "globalSetup": "./Jest/globalSetup.js",
+    "globalTeardown": "./Jest/globalTeardown.js",
+    "testSequencer": "./Jest/testSequencer.js"
   }
 }

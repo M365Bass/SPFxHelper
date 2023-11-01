@@ -1,7 +1,7 @@
 const fs = require("fs");
 const join = require("path").join;
 const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
-const npmVersionCommand = require("./npmVersion");
+const npmVersionCommand = require("../Commands/npmVersion");
 
 const gulpfilePath = join(wpFolderPath, "gulpfile.js");
 

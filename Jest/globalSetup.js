@@ -1,7 +1,7 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
-const parentFolderPath = require("./Utils/folderPaths").parentFolderPath();
-const wpFolderPath = require("./Utils/folderPaths").wpFolderPath();
+const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
+const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 
 module.exports = function () {
   fs.mkdirSync(parentFolderPath, { recursive: true });
