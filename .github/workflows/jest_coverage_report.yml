@@ -5,7 +5,6 @@ name: Jest coverage report
 on:
   pull_request:
     branches:
-      - master
       - main
 jobs:
   coverage:
@@ -15,6 +14,10 @@ jobs:
         os: [ubuntu-latest]
         version: [16]
     runs-on: ${{ matrix.os }}
+    permissions:
+      # contents: write
+      pull-requests: write
+      # repository-projects: write
     continue-on-error: true
     steps:
       - uses: actions/checkout@v3
