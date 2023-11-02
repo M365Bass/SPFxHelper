@@ -4,7 +4,10 @@ const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
 const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 
 module.exports = function () {
+  console.log();
   process.env.initialPath = process.cwd();
+  console.log("process.env.initialPath");
+  console.log(process.env.initialPath);
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
   execSync("npm install gulp-cli yo @microsoft/generator-sharepoint --global", {
