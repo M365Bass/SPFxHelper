@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        version: [18]
+        version: [16]
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     steps:
@@ -24,4 +24,5 @@ jobs:
       - run: npm ci
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
+          skip-step: install
           test-script: npm run test-seq
