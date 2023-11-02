@@ -11,5 +11,5 @@ module.exports = function () {
     force: true,
   });
 
-  // process.chdir(process.env.initialPath);
+  process.chdir(process.env.initialPath);
 };
