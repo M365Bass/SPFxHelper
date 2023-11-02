@@ -12,7 +12,7 @@
     "spfx-jack": "./index.js"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand",
     "test-seq": "jest --runInBand",
     "testCoverage": "jest --runInBand --coverage"
   },

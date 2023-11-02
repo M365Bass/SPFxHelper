@@ -25,5 +25,5 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           skip-step: install
-          test-script: npm run testCoverage
+          test-script: npm test
           threshold: 10
