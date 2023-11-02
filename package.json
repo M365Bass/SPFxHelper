@@ -12,9 +12,8 @@
     "spfx-jack": "./index.js"
   },
   "scripts": {
-    "test": "jest --runInBand",
-    "test-seq": "jest --runInBand",
-    "testCoverage": "jest --runInBand --coverage"
+    "test": "jest",
+    "test-seq": "jest --runInBand"
   },
   "dependencies": {
     "chalk": "^4.1.2",
