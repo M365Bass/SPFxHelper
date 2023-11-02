@@ -12,5 +12,5 @@ module.exports = function (packageJSON_filePath) {
     `gulpfile already contains npx sort-package-json`
   );
 
-  executeCommand("npx sort-package-json", packageJSON_filePath);
+  executeCommand("npx sort-package-json");
 };

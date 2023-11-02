@@ -2,12 +2,12 @@ const fs = require("fs");
 const execSync = require("child_process").execSync;
 const chalk = require("../Utils/chalk");
 
-module.exports = function (command, stdio = "pipe", resultStartsWith) {
+module.exports = function (command) {
   chalk.Message("Running " + command);
 
   try {
-    if (execSync(command).toString().startsWith(resultStartsWith))
-      chalk.Success(command + " ran successfully");
+    execSync(command);
+    chalk.Success(command + " ran successfully");
   } catch (error) {
     chalk.Error(command + " did not run successfully");
     fs.writeFileSync("err.log", error.message);
