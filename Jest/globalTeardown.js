@@ -10,4 +10,6 @@ module.exports = function () {
     recursive: true,
     force: true,
   });
+
+  // process.chdir(process.env.initialPath);
 };
