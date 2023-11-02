@@ -4,8 +4,6 @@ const os = require("os");
 const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
 
 module.exports = function () {
-  // console.log("initialPath: " + process.env.initialPath);
-  // console.log();
   process.chdir(os.homedir());
 
   fs.rmSync(parentFolderPath, {
@@ -13,5 +11,5 @@ module.exports = function () {
     force: true,
   });
 
-  process.chdir(process.env.initialPath);
+  // process.chdir(process.env.initialPath);
 };

@@ -1,12 +1,12 @@
 # This workflow will run tests for PRs before allowing merge
 
-name: Run tests before allowing merge
+name: Merge checks
 
 on:
   pull_request:
 
 jobs:
-  test:
+  run-tests:
     strategy:
       max-parallel: 6
       fail-fast: false
