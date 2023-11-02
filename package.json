@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "jest",
-    "test-seq": "jest --runInBand"
+    "test-seq": "jest --runInBand",
+    "test-coverage": "jest --runInBand --coverage"
   },
   "dependencies": {
     "chalk": "^4.1.2",
