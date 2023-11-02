@@ -25,7 +25,6 @@
   },
   "jest": {
     "globalSetup": "./Jest/globalSetup.js",
-    "globalTeardown": "./Jest/globalTeardown.js",
     "testSequencer": "./Jest/testSequencer.js"
   }
 }
