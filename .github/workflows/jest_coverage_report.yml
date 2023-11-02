@@ -8,18 +8,25 @@ on:
       - main
 jobs:
   coverage:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        version: [16]
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: write
       pull-requests: write
+      # repository-projects: write
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.version }}
       - run: npm ci
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           skip-step: install
           # test-script: npm test
-          # threshold: 10
+          threshold: 10
