@@ -1,4 +1,6 @@
 /* npm version */
+const gulp = require("gulp");
+
 build.initialize(require("gulp"));
 
 gulp.task("version-sync", async function () {
@@ -9,7 +11,7 @@ gulp.task("version-sync", async function () {
   const fs = require("fs");
 
   // read package.json
-  var pkgConfig = require("../package.json");
+  var pkgConfig = require("./package.json");
 
   // read configuration of web part solution file
   var pkgSolution = require("./config/package-solution.json");
