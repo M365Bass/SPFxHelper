@@ -11,11 +11,11 @@ module.exports = function () {
     force: true,
   });
 
-  // console.log("process.cwd() after everything");
-  // console.log(process.cwd());
-  // process.chdir(process.env.initialPath);
-  // console.log("process.env.initialPath");
-  // console.log(process.env.initialPath);
-  // console.log("process.cwd() now everything");
-  // console.log(process.cwd());
+  console.log("process.cwd() after everything");
+  console.log(process.cwd());
+  process.chdir(process.env.initialPath);
+  console.log("process.env.initialPath");
+  console.log(process.env.initialPath);
+  console.log("process.cwd() now everything");
+  console.log(process.cwd());
 };
