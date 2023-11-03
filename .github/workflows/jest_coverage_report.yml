@@ -20,6 +20,6 @@ jobs:
         with:
           node-version: 16
       - uses: ArtiomTr/jest-coverage-report-action@v2
-        with:
-          # test-script: npm test
-          # threshold: 10
+        # with:
+        # test-script: npm test
+        # threshold: 10
