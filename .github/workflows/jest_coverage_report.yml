@@ -15,9 +15,9 @@ jobs:
         version: [16]
     runs-on: ${{ matrix.os }}
     permissions:
-      # contents: write
+      checks: write
       pull-requests: write
-      # repository-projects: write
+      contents: write
     continue-on-error: true
     steps:
       - uses: actions/checkout@v3
