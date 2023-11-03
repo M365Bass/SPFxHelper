@@ -4,7 +4,8 @@ const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
 const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 
 module.exports = function () {
-  // process.env.initialPath = process.cwd();
+  // save current working dir in to revert to it in teardown
+  process.env.initialPath = process.cwd();
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
   execSync("npm install gulp-cli yo @microsoft/generator-sharepoint --global", {

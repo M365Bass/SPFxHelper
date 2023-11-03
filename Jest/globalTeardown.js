@@ -11,5 +11,6 @@ module.exports = function () {
     force: true,
   });
 
-  // process.chdir(process.env.initialPath);
+  // revert to initial working dir from setup
+  process.chdir(process.env.initialPath);
 };

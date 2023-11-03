@@ -1,0 +1,20 @@
+# This workflow will run the Jest coverage report
+
+name: Jest coverage report
+
+on:
+  pull_request:
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: ArtiomTr/jest-coverage-report-action@v2
