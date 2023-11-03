@@ -12,7 +12,7 @@
     "spfx-jack": "./index.js"
   },
   "scripts": {
-    "test": "jest --runInBand",
+    "test": "jest",
     "test-seq": "jest --runInBand"
   },
   "dependencies": {
