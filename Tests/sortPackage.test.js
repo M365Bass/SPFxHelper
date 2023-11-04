@@ -12,18 +12,18 @@ beforeEach(() => {
   packageJSON_afterChanges = fs.readFileSync(packageJSON_filePath, "utf8");
 });
 
-test("Package.json file changed", () => {
+test("sortPackage: Package.json file changed", () => {
   expect(packageJSON_afterChanges).not.toEqual(packageJSON_beforeChanges);
 });
 
-test("Package.json file sorted", () => {
+test("sortPackage: dependencies in Package.json file sorted", () => {
   depsBefore = JSON.parse(packageJSON_beforeChanges).dependencies;
   depsAfter = JSON.parse(packageJSON_afterChanges).dependencies;
 
   expect(sortObject(depsBefore)).toEqual(depsAfter);
 });
 
-test("Package.json file updated with postinstall script for sort-package-json", () => {
+test("sortPackage: postinstall script added", () => {
   expect(packageJSON_afterChanges).toContain(
     '"postinstall": "npx sort-package-json"'
   );

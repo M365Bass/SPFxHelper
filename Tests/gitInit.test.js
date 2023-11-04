@@ -7,6 +7,6 @@ beforeEach(() => {
   gitInitCommand(wpFolderPath);
 });
 
-test("Validate .git folder exists after git init script runs", () => {
+test("gitInit: .git folder created", () => {
   expect(fs.existsSync(resolve(wpFolderPath, ".git"))).toBeTruthy();
 });

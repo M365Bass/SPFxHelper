@@ -31,7 +31,7 @@ beforeEach(() => {
   componentWP_afterChanges = fs.readFileSync(componentWP_filePath, "utf8");
 });
 
-test("Files changed after prettier ran", () => {
+test("prettier: parentWP & componentWP files changed", () => {
   expect(parentWP_afterChanges).not.toEqual(parentWP_beforeChanges);
   expect(componentWP_afterChanges).not.toEqual(componentWP_beforeChanges);
 });
