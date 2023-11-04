@@ -1,6 +1,5 @@
 const executeCommand = require("../Utils/executeCommand");
 
-module.exports = function (folderPath) {
-  process.chdir(folderPath);
-  executeCommand("npx prettier --write .");
+module.exports = function (path) {
+  executeCommand("npx prettier --write " + path);
 };
