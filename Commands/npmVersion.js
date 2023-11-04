@@ -6,6 +6,9 @@ const replaceInFile = require("../Utils/replaceInFile");
 const appendToJSONFile = require("../Utils/appendToJSONFile");
 const executeCommand = require("../Utils/executeCommand");
 
+const npmVersionReplaceSource =
+  require("../Utils/replaceSources").npmVersionReplaceSource();
+
 module.exports = function (gulpfilePath) {
   const gulpSourceFile = join(__dirname, "..", "Sources", "gulp.js");
   const gulpSourceFileData = readFileSync(gulpSourceFile, "utf8");
@@ -13,7 +16,7 @@ module.exports = function (gulpfilePath) {
   replaceInFile(
     "Add npmVersion script",
     gulpfilePath,
-    "build.initialize(require('gulp'));",
+    npmVersionReplaceSource,
     gulpSourceFileData,
     "/* npm version */",
     `gulpfile updated with npmVersion script`,
