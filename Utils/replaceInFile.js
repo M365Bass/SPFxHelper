@@ -1,6 +1,8 @@
 const fs = require("fs");
 const chalk = require("./chalk");
 
+const executeCommand = require("../Utils/executeCommand");
+
 /**
  * @param checkString string to check if exists before replace occurs
  */
@@ -14,6 +16,8 @@ module.exports = function (
   WarningMessage
 ) {
   chalk.Message(initialMessage);
+
+  executeCommand("npx prettier --write " + filePath);
 
   const fileData = fs.readFileSync(filePath, "utf8");
 
