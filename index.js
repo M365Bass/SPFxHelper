@@ -12,7 +12,7 @@ const npmVersionCommand = require("./Commands/npmVersion");
 const fastServeCommand = require("./Commands/fastServe");
 const gitInitCommand = require("./Commands/gitInit");
 const sortPackageCommand = require("./Commands/sortPackage");
-const prettierCommand = require("./Commands/prettier");
+const runPrettierCommand = require("./Commands/runPrettier");
 
 const program = new Command();
 
@@ -67,6 +67,6 @@ if (options.sortPackage) {
 }
 
 if (options.prettier) {
-  prettierCommand(path);
+  runPrettierCommand(path);
   gitInstalled && gitCommit("prettier");
 }

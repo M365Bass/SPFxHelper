@@ -4,7 +4,7 @@ const readFileSync = require("fs").readFileSync;
 
 const replaceInFile = require("../Utils/replaceInFile");
 const appendToJSONFile = require("../Utils/appendToJSONFile");
-const executeCommand = require("../Utils/executeCommand");
+const prettifyPath = require("../Utils/prettifyPath");
 
 const npmVersion_stringLiterals =
   require("../Sources/stringLiterals").npmVersion;
@@ -35,5 +35,5 @@ module.exports = function (gulpfilePath) {
     npmVersion_stringLiterals.appendToJSONFile.messages.errorMessage
   );
 
-  executeCommand("npx prettier --write " + "package.json");
+  prettifyPath("package.json");
 };
