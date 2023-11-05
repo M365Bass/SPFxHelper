@@ -6,34 +6,34 @@ const replaceInFile = require("../Utils/replaceInFile");
 const appendToJSONFile = require("../Utils/appendToJSONFile");
 const executeCommand = require("../Utils/executeCommand");
 
-const npmVersionReplaceSource =
-  require("../Utils/replaceSources").npmVersionReplaceSource();
+const npmVersion_stringLiterals =
+  require("../Sources/stringLiterals").npmVersion;
 
 module.exports = function (gulpfilePath) {
   const gulpSourceFile = join(__dirname, "..", "Sources", "gulp.js");
   const gulpSourceFileData = readFileSync(gulpSourceFile, "utf8");
 
   replaceInFile(
-    "Add npmVersion script",
+    npmVersion_stringLiterals.replaceInFile.messages.initialMessage,
     gulpfilePath,
-    npmVersionReplaceSource,
+    npmVersion_stringLiterals.replaceInFile.source,
     gulpSourceFileData,
-    "/* npm version */",
-    `gulpfile updated with npmVersion script`,
-    `gulpfile already contains npmVersion script`
+    npmVersion_stringLiterals.replaceInFile.checkString,
+    npmVersion_stringLiterals.replaceInFile.messages.successMessage,
+    npmVersion_stringLiterals.replaceInFile.messages.warningMessage
   );
 
   const packageJSON_filePath = join(dirname(gulpfilePath), "package.json");
 
   appendToJSONFile(
-    "Add postinstall script to package.JSON",
+    npmVersion_stringLiterals.appendToJSONFile.messages.initialMessage,
     packageJSON_filePath,
-    "scripts",
-    "postversion",
-    "gulp version-sync && git add . && git commit --amend --no-edit",
-    "SUCCESS",
-    "ERR"
+    npmVersion_stringLiterals.appendToJSONFile.jsonContainer,
+    npmVersion_stringLiterals.appendToJSONFile.jsonKey,
+    npmVersion_stringLiterals.appendToJSONFile.jsonValue,
+    npmVersion_stringLiterals.appendToJSONFile.messages.successMessage,
+    npmVersion_stringLiterals.appendToJSONFile.messages.errorMessage
   );
 
-  executeCommand("npx prettier --write package.json");
+  executeCommand("npx prettier --write " + "package.json");
 };
