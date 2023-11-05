@@ -1,6 +1,8 @@
 const fs = require("fs");
 const chalk = require("./chalk");
 
+const prettifyPath = require("../Utils/prettifyPath");
+
 /**
  * @param checkString string to check if exists before replace occurs
  */
@@ -14,6 +16,8 @@ module.exports = function (
   WarningMessage
 ) {
   chalk.Message(initialMessage);
+
+  prettifyPath(filePath);
 
   const fileData = fs.readFileSync(filePath, "utf8");
 

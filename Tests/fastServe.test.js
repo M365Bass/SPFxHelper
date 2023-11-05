@@ -7,6 +7,6 @@ beforeEach(() => {
   fastServeCommand(wpFolderPath);
 });
 
-test("Validate fast-serve folder exists after spfx-fast-serve is installed and configured", () => {
+test("fastServe: fast-serve folder created", () => {
   expect(fs.existsSync(resolve(wpFolderPath, "fast-serve"))).toBeTruthy();
 });
