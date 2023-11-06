@@ -6,7 +6,7 @@ const sortObject = require("sort-object-keys");
 
 const packageJSON_filePath = join(wpFolderPath, "package.json");
 
-beforeEach(() => {
+beforeAll(() => {
   packageJSON_beforeChanges = fs.readFileSync(packageJSON_filePath, "utf8");
   sortPackage(packageJSON_filePath);
   packageJSON_afterChanges = fs.readFileSync(packageJSON_filePath, "utf8");

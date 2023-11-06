@@ -3,7 +3,7 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 const fastServeCommand = require("../Commands/fastServe");
 const resolve = require("path").resolve;
 
-beforeEach(() => {
+beforeAll(() => {
   fastServeCommand(wpFolderPath);
 });
 

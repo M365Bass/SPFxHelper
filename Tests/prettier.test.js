@@ -21,7 +21,7 @@ const componentWP_filePath = join(
   "WebPart1WebPart.ts"
 );
 
-beforeEach(() => {
+beforeAll(() => {
   parentWP_beforeChanges = fs.readFileSync(parentWP_filePath, "utf8");
   componentWP_beforeChanges = fs.readFileSync(componentWP_filePath, "utf8");
 

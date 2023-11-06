@@ -5,13 +5,11 @@ const npmVersionCommand = require("../Commands/npmVersion");
 
 const gulpfilePath = join(wpFolderPath, "gulpfile.js");
 
-beforeEach(() => {
+beforeAll(() => {
   npmVersionCommand(gulpfilePath);
 });
 
-test("npmVersion: gulp file updated with 'pkgSolution.solution.version = newVersionNumber'", () => {
+test("npmVersion: version-sync gulp task added", () => {
   const gulpfilePathData = fs.readFileSync(gulpfilePath, "utf8");
-  expect(gulpfilePathData).toContain(
-    "pkgSolution.solution.version = newVersionNumber;"
-  );
+  expect(gulpfilePathData).toContain('gulp.task("version-sync"');
 });
