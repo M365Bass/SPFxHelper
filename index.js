@@ -20,11 +20,12 @@ program
   .version("0.0.1")
   .description("An example CLI for managing a directory")
   .option("-p, --path <value>", "path")
-  .option("-nv, --npm-version", "NPM version")
-  .option("-fs, --fast-serve", "Fast Serve")
-  .option("-gi, --git-init", "git init")
-  .option("-sp, --sort-package", "sort Package JSON")
-  .option("-pr, --prettier", "run prettier")
+  .option("-v, --npm-version", "NPM version")
+  .option("-f, --fast-serve", "Fast Serve")
+  .option("-g, --git-init", "git init")
+  .option("-s, --sort-package", "sort Package JSON")
+  .option("-p, --prettier", "run prettier")
+
   .parse(process.argv);
 
 const options = program.opts();
