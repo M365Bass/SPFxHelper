@@ -3,6 +3,7 @@
 name: Jest coverage report
 
 on:
+  push:
   pull_request:
 
 jobs:
