@@ -29,8 +29,8 @@ module.exports = function (folderPath) {
           chalk.Error("Error details logged to err.log in " + process.cwd());
         }
       }
+      return true;
     }
-    return true;
   } catch (error) {
     chalk.Error(`git not installed, please install and retry`, true);
     process.exit(1);
