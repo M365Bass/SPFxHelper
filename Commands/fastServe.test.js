@@ -1,0 +1,92 @@
+const fastServeCommand = require("./fastServe");
+const chalk = require("../Utils/chalk");
+
+const fs = require("fs");
+const cp = require("child_process");
+
+beforeEach(() => {
+  command = jest.spyOn(fastServeCommand, "fastServe");
+  chdir = jest.spyOn(process, "chdir").mockImplementation(() => {});
+  chalkMessage = jest.spyOn(chalk, "Message");
+  chalkWarning = jest.spyOn(chalk, "Warning");
+  chalkSuccess = jest.spyOn(chalk, "Success");
+});
+
+test("fastServe: needs to be installed globally & needs to be configured in project", () => {
+  const existsSync = jest.spyOn(fs, "existsSync").mockImplementation(() => {
+    return !true;
+  });
+  const execSync = jest
+    .spyOn(cp, "execSync")
+    .mockImplementation((commandToRun) => {
+      if (commandToRun === "npm list -g --depth=0")
+        return Buffer.from("NOT spfx DASH fast-serve"); //spfx-fast-serve not present
+    });
+
+  fastServeCommand.fastServe("any path");
+  expect(command).toHaveBeenCalled();
+
+  expect(existsSync).toHaveBeenCalled();
+  expect(chalkMessage).toHaveBeenCalledWith("Running npm list -g --depth=0");
+  expect(chalkMessage).toHaveBeenCalledWith(
+    "Installing spfx-fast-serve globally"
+  );
+  expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve installed");
+  expect(chdir).toHaveBeenCalled();
+  expect(chalkMessage).toHaveBeenCalledWith("Running spfx-fast-serve");
+  expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve config completed");
+
+  expect(execSync).toHaveBeenCalledTimes(3);
+  // execSync("npm list -g --depth=0").toString();
+  // execSync("npm install spfx-fast-serve -g");
+  // execSync("spfx-fast-serve");
+});
+
+test("fastServe: already installed globally but needs to be configured in project", () => {
+  const existsSync = jest.spyOn(fs, "existsSync").mockImplementation(() => {
+    return !true;
+  });
+  const execSync = jest
+    .spyOn(cp, "execSync")
+    .mockImplementation((commandToRun) => {
+      if (commandToRun === "npm list -g --depth=0")
+        return Buffer.from("spfx-fast-serve");
+    });
+
+  fastServeCommand.fastServe("any path");
+  expect(command).toHaveBeenCalled();
+
+  expect(existsSync).toHaveBeenCalled();
+  expect(chalkMessage).toHaveBeenCalledWith("Running npm list -g --depth=0");
+  expect(chalkMessage).toHaveBeenCalledWith(
+    "spfx-fast-serve already installed globally"
+  );
+  expect(chdir).toHaveBeenCalled();
+  expect(chalkMessage).toHaveBeenCalledWith("Running spfx-fast-serve");
+  expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve config completed");
+
+  expect(execSync).toHaveBeenCalledTimes(2);
+  // execSync("npm list -g --depth=0").toString();
+  // execSync("spfx-fast-serve");
+});
+
+test("fastServe: already configured in project (meaning should be installed globally)", () => {
+  const existsSync = jest.spyOn(fs, "existsSync").mockImplementation(() => {
+    return true;
+  });
+  const execSync = jest.spyOn(cp, "execSync");
+
+  fastServeCommand.fastServe("any path");
+  expect(command).toHaveBeenCalled();
+
+  expect(existsSync).toHaveBeenCalled();
+  expect(chalkWarning).toHaveBeenCalledWith(
+    "spfx-fast-serve already configured"
+  );
+  expect(execSync).not.toHaveBeenCalled();
+});
+
+afterEach(() => {
+  // restore the spy created with spyOn
+  jest.restoreAllMocks();
+});
