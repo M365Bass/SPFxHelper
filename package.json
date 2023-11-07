@@ -13,9 +13,10 @@
   },
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:e2e": "jest --selectProjects e2e",
     "test:unit": "jest --selectProjects unit",
-    "test:coverage": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json"
+    "test:jest_coverage_report": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json"
   },
   "dependencies": {
     "chalk": "^4.1.2",
