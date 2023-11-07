@@ -1,14 +1,14 @@
 const fs = require("fs");
 const join = require("path").join;
 const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
-const sortPackage = require("../Commands/sortPackage");
+const sortPackageCommand = require("../Commands/sortPackage");
 const sortObject = require("sort-object-keys");
 
 const packageJSON_filePath = join(wpFolderPath, "package.json");
 
 beforeAll(() => {
   packageJSON_beforeChanges = fs.readFileSync(packageJSON_filePath, "utf8");
-  sortPackage(packageJSON_filePath);
+  sortPackageCommand.sortPackage(packageJSON_filePath);
   packageJSON_afterChanges = fs.readFileSync(packageJSON_filePath, "utf8");
 });
 

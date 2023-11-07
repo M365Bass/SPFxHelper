@@ -6,7 +6,7 @@ const npmVersionCommand = require("../Commands/npmVersion");
 const gulpfilePath = join(wpFolderPath, "gulpfile.js");
 
 beforeAll(() => {
-  npmVersionCommand(gulpfilePath);
+  npmVersionCommand.npmVersion(gulpfilePath);
 });
 
 test("npmVersion: version-sync gulp task added", () => {

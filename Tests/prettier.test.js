@@ -25,7 +25,7 @@ beforeAll(() => {
   parentWP_beforeChanges = fs.readFileSync(parentWP_filePath, "utf8");
   componentWP_beforeChanges = fs.readFileSync(componentWP_filePath, "utf8");
 
-  runPrettierCommand(parentFolderPath);
+  runPrettierCommand.runPrettier(parentFolderPath);
 
   parentWP_afterChanges = fs.readFileSync(parentWP_filePath, "utf8");
   componentWP_afterChanges = fs.readFileSync(componentWP_filePath, "utf8");

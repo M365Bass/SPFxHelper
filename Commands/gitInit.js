@@ -1,13 +1,13 @@
-const gitInit = {
-  gitInit(folderPath) {
+const gitInitCommand = {
+  gitInit: function (folderPath) {
     const execSync = require("child_process").execSync;
-    const chalk = require("../Utils/chalk");
     const writeFileSync = require("fs").writeFileSync;
+    const chalk = require("../Utils/chalk");
+
     try {
       chalk.Message(`Checking whether git is installed`);
       if (execSync("git --version").toString().startsWith("git version")) {
         chalk.Success(`git installed`);
-
         try {
           chalk.Message(`Checking whether git is initialised`);
           process.chdir(folderPath);
@@ -38,4 +38,4 @@ const gitInit = {
   },
 };
 
-module.exports = gitInit;
+module.exports = gitInitCommand;

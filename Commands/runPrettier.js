@@ -1,5 +1,9 @@
-const prettifyPath = require("../Utils/prettifyPath");
+const runPrettierCommand = {
+  runPrettier: function (path) {
+    const prettifyPath = require("../Utils/prettifyPath");
 
-module.exports = function (path) {
-  prettifyPath(path);
+    prettifyPath(path);
+  },
 };
+
+module.exports = runPrettierCommand;
