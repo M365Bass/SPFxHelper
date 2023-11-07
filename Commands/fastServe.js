@@ -19,8 +19,8 @@ const fastServeCommand = {
 
       process.chdir(folderPath);
       chalk.Message(`Running spfx-fast-serve`);
-      chalk.Success(`spfx-fast-serve config completed`);
       execSync(`spfx-fast-serve`);
+      chalk.Success(`spfx-fast-serve config completed`);
     } else {
       chalk.Warning("spfx-fast-serve already configured");
     }
