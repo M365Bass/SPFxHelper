@@ -1,4 +1,4 @@
-const gitInitCommand = require("../Commands/gitInit");
+const gitInitCommand = require("./gitInit");
 const chalk = require("../Utils/chalk");
 
 const cp = require("child_process");

@@ -30,7 +30,7 @@
       {
         "displayName": "e2e",
         "testMatch": [
-          "**/Tests/**.test.js"
+          "**/e2e/**.test.js"
         ],
         "globalSetup": "./Jest/globalSetup.js",
         "globalTeardown": "./Jest/globalTeardown.js"
@@ -38,7 +38,7 @@
       {
         "displayName": "unit",
         "testMatch": [
-          "**/Tests/**.spec.js"
+          "**/Commands/**.test.js"
         ]
       }
     ]
