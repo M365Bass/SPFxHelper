@@ -32,7 +32,7 @@ const options = program.opts();
 
 let path;
 if (options.path) {
-  path = options.path.replace('"', "");
+  path = options.path.replace(`"`, "");
 } else {
   path = process.cwd();
 }

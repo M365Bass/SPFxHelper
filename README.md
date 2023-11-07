@@ -12,4 +12,4 @@ Helper to automate steps after initialising a new SPFx project. Current features
 
 # Motivation
 
-I built this as I repeatidly do these things every time I start a new project. The goal is to have as many 'independent' commands as needed.
+I built this as I repeatedly do these things every time I start a new project. The goal is to have as many "independent" commands as needed.

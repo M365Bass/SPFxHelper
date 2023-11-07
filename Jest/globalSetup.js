@@ -13,8 +13,8 @@ module.exports = function () {
   });
   process.chdir(parentFolderPath);
   execSync(
-    'yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"' +
-      ' --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" ',
+    `yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"` +
+      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `,
     { stdio: [] }
   );
 

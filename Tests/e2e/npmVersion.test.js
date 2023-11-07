@@ -11,5 +11,5 @@ beforeAll(() => {
 
 test("npmVersion: version-sync gulp task added", () => {
   const gulpfilePathData = fs.readFileSync(gulpfilePath, "utf8");
-  expect(gulpfilePathData).toContain('gulp.task("version-sync"');
+  expect(gulpfilePathData).toContain(`gulp.task("version-sync"`);
 });

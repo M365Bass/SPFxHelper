@@ -5,11 +5,11 @@ const gitInitCommand = {
     const chalk = require("../Utils/chalk");
 
     try {
-      chalk.Message(`Checking whether git is installed`);
+      chalk.Message("Checking whether git is installed");
       if (execSync("git --version").toString().startsWith("git version")) {
-        chalk.Success(`git installed`);
+        chalk.Success("git installed");
         try {
-          chalk.Message(`Checking whether git is initialised`);
+          chalk.Message("Checking whether git is initialised");
           process.chdir(folderPath);
           if (
             execSync("git status", { stdio: [] })
@@ -32,7 +32,7 @@ const gitInitCommand = {
         return true;
       }
     } catch (error) {
-      chalk.Error(`git not installed, please install and retry`, true);
+      chalk.Error("git not installed, please install and retry", true);
       process.exit(1);
     }
   },
