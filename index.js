@@ -48,26 +48,26 @@ chalk.Message(path);
 
 let gitInstalled;
 if (options.gitInit) {
-  gitInstalled = gitInitCommand(path);
+  gitInstalled = gitInitCommand.gitInit(path);
   gitInstalled && gitCommit("gitInit");
 }
 
 if (options.npmVersion) {
-  npmVersionCommand(resolve(path, "gulpfile.js"));
+  npmVersionCommand.npmVersion(resolve(path, "gulpfile.js"));
   gitInstalled && gitCommit("npmVersion");
 }
 
 if (options.fastServe) {
-  fastServeCommand(path);
+  fastServeCommand.fastServe(path);
   gitInstalled && gitCommit("fastServe");
 }
 
 if (options.sortPackage) {
-  sortPackageCommand(resolve(path, "package.json"));
+  sortPackageCommand.sortPackage(resolve(path, "package.json"));
   gitInstalled && gitCommit("sortPackage");
 }
 
 if (options.prettier) {
-  runPrettierCommand(path);
+  runPrettierCommand.runPrettier(path);
   gitInstalled && gitCommit("prettier");
 }
