@@ -19,7 +19,7 @@ const program = new Command();
 program
   .version("0.0.1")
   .description("An example CLI for managing a directory")
-  .option("-p, --path <value>", "path")
+  .option("-w, --working-dir <value>", "working directory")
   .option("-v, --npm-version", "NPM version")
   .option("-f, --fast-serve", "Fast Serve")
   .option("-g, --git-init", "git init")
@@ -31,8 +31,8 @@ program
 const options = program.opts();
 
 let path;
-if (options.path) {
-  path = options.path.replace(`"`, "");
+if (options.workingDir) {
+  path = options.workingDir.replace(`"`, "");
 } else {
   path = process.cwd();
 }
