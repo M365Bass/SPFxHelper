@@ -5,7 +5,7 @@ const npmVersionCommand = {
     const readFileSync = require("fs").readFileSync;
 
     const replaceInFile = require("../Utils/replaceInFile");
-    const appendToJSONFile = require("../Utils/appendToJSONFile");
+    const appendToJSONFileUtil = require("../Utils/appendToJSONFile");
     const prettifyPath = require("../Utils/prettifyPath");
 
     const npmVersion_stringLiterals =
@@ -26,7 +26,7 @@ const npmVersionCommand = {
 
     const packageJSON_filePath = join(dirname(gulpfilePath), "package.json");
 
-    appendToJSONFile(
+    appendToJSONFileUtil.appendToJSONFile(
       npmVersion_stringLiterals.appendToJSONFile.messages.initialMessage,
       packageJSON_filePath,
       npmVersion_stringLiterals.appendToJSONFile.jsonContainer,
