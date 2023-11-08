@@ -1,10 +1,10 @@
 const fs = require("fs");
-const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
-const fastServeCommand = require("../Commands/fastServe");
+const wpFolderPath = require("../../Utils/folderPaths").wpFolderPath();
+const fastServeCommand = require("../../Commands/fastServe");
 const resolve = require("path").resolve;
 
-beforeEach(() => {
-  fastServeCommand(wpFolderPath);
+beforeAll(() => {
+  fastServeCommand.fastServe(wpFolderPath);
 });
 
 test("fastServe: fast-serve folder created", () => {

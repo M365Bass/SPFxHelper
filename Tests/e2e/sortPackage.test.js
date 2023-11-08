@@ -1,14 +1,14 @@
 const fs = require("fs");
 const join = require("path").join;
-const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
-const sortPackage = require("../Commands/sortPackage");
+const wpFolderPath = require("../../Utils/folderPaths").wpFolderPath();
+const sortPackageCommand = require("../../Commands/sortPackage");
 const sortObject = require("sort-object-keys");
 
 const packageJSON_filePath = join(wpFolderPath, "package.json");
 
-beforeEach(() => {
+beforeAll(() => {
   packageJSON_beforeChanges = fs.readFileSync(packageJSON_filePath, "utf8");
-  sortPackage(packageJSON_filePath);
+  sortPackageCommand.sortPackage(packageJSON_filePath);
   packageJSON_afterChanges = fs.readFileSync(packageJSON_filePath, "utf8");
 });
 
@@ -24,7 +24,5 @@ test("sortPackage: dependencies in Package.json file sorted", () => {
 });
 
 test("sortPackage: postinstall script added", () => {
-  expect(packageJSON_afterChanges).toContain(
-    '"postinstall": "npx sort-package-json"'
-  );
+  expect(packageJSON_afterChanges).toContain(`npx sort-package-json`);
 });

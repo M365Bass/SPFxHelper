@@ -1,8 +1,8 @@
 const fs = require("fs");
 const join = require("path").join;
-const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
-const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
-const runPrettierCommand = require("../Commands/runPrettier");
+const wpFolderPath = require("../../Utils/folderPaths").wpFolderPath();
+const parentFolderPath = require("../../Utils/folderPaths").parentFolderPath();
+const runPrettierCommand = require("../../Commands/runPrettier");
 
 const parentWP_filePath = join(
   wpFolderPath,
@@ -21,11 +21,11 @@ const componentWP_filePath = join(
   "WebPart1WebPart.ts"
 );
 
-beforeEach(() => {
+beforeAll(() => {
   parentWP_beforeChanges = fs.readFileSync(parentWP_filePath, "utf8");
   componentWP_beforeChanges = fs.readFileSync(componentWP_filePath, "utf8");
 
-  runPrettierCommand(parentFolderPath);
+  runPrettierCommand.runPrettier(parentFolderPath);
 
   parentWP_afterChanges = fs.readFileSync(parentWP_filePath, "utf8");
   componentWP_afterChanges = fs.readFileSync(componentWP_filePath, "utf8");

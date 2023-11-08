@@ -5,7 +5,7 @@ const chalk = require("./chalk");
 module.exports = function (commitMessage) {
   try {
     execSync("git add .", { stdio: [] });
-    execSync('git commit -m "' + commitMessage + '"', { stdio: [] });
+    execSync(`git commit -m "` + commitMessage + `"`, { stdio: [] });
     chalk.Success("git commit: " + commitMessage);
   } catch (error) {
     try {
