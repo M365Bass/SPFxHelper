@@ -21,7 +21,8 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "sort-package-json": "^2.6.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",
