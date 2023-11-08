@@ -36,7 +36,7 @@ const npmVersionCommand = {
       npmVersion_stringLiterals.appendToJSONFile.messages.errorMessage
     );
 
-    prettifyPath("package.json");
+    prettifyPath(packageJSON_filePath);
   },
 };
 
