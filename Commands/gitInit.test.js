@@ -1,5 +1,6 @@
 const gitInitCommand = require("./gitInit");
 const chalk = require("../Utils/chalk");
+const sharedLiterals = require("../Sources/testLiterals").shared;
 
 const cp = require("child_process");
 const process = require("node:process");
@@ -9,11 +10,11 @@ const fs = require("fs");
 test("gitInit: process.exit with 1 if execSync throws error", () => {
   const command = jest.spyOn(gitInitCommand, "gitInit");
   const execSync = jest.spyOn(cp, "execSync").mockImplementation(() => {
-    throw new Error("any error");
+    throw new Error(sharedLiterals.anyError);
   });
   const exit = jest.spyOn(process, "exit").mockImplementation(() => {});
 
-  gitInitCommand.gitInit("any path");
+  gitInitCommand.gitInit(sharedLiterals.anyPath);
 
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalled();
@@ -33,7 +34,7 @@ test("gitInit: git already initialised", () => {
   const exit = jest.spyOn(process, "exit").mockImplementation(() => {});
   const chdir = jest.spyOn(process, "chdir").mockImplementation(() => {});
 
-  const gInit = gitInitCommand.gitInit("any path");
+  const gInit = gitInitCommand.gitInit(sharedLiterals.anyPath);
 
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalledTimes(2);
@@ -54,15 +55,16 @@ test("gitInit: git needs initialisation & succeeds", () => {
     .spyOn(cp, "execSync")
     .mockImplementation((commandToRun) => {
       if (commandToRun === "git --version") return Buffer.from("git version");
-      else if (commandToRun === "git status") throw new Error("any error");
+      else if (commandToRun === "git status")
+        throw new Error(sharedLiterals.anyError);
       else if (commandToRun === "git init -b main") Buffer.from("any output");
-      // else if (commandToRun === "git init -b main") throw new Error("any error");
+      // else if (commandToRun === "git init -b main") throw new Error(sharedLiterals.anyError);
     });
   const chalkSuccess = jest.spyOn(chalk, "Success");
   const exit = jest.spyOn(process, "exit").mockImplementation(() => {});
   const chdir = jest.spyOn(process, "chdir").mockImplementation(() => {});
 
-  const gInit = gitInitCommand.gitInit("any path");
+  const gInit = gitInitCommand.gitInit(sharedLiterals.anyPath);
 
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalledTimes(3);
@@ -84,9 +86,10 @@ test("gitInit: git needs initialisation & fails", () => {
     .spyOn(cp, "execSync")
     .mockImplementation((commandToRun) => {
       if (commandToRun === "git --version") return Buffer.from("git version");
-      else if (commandToRun === "git status") throw new Error("any error");
+      else if (commandToRun === "git status")
+        throw new Error(sharedLiterals.anyError);
       else if (commandToRun === "git init -b main")
-        throw new Error("any error");
+        throw new Error(sharedLiterals.anyError);
     });
   const chalkSuccess = jest.spyOn(chalk, "Success");
   const chalkError = jest.spyOn(chalk, "Error");
@@ -96,7 +99,7 @@ test("gitInit: git needs initialisation & fails", () => {
     .spyOn(fs, "writeFileSync")
     .mockImplementation(() => {});
 
-  const gInit = gitInitCommand.gitInit("any path");
+  const gInit = gitInitCommand.gitInit(sharedLiterals.anyPath);
 
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalledTimes(3);
@@ -104,7 +107,10 @@ test("gitInit: git needs initialisation & fails", () => {
   // execSync("git status", { stdio: [] })
   // execSync("git init -b main", { stdio: [] });
   expect(chdir).toHaveBeenCalled();
-  expect(writeFileSync).toHaveBeenCalledWith("err.log", "any error");
+  expect(writeFileSync).toHaveBeenCalledWith(
+    "err.log",
+    sharedLiterals.anyError
+  );
   expect(exit).not.toHaveBeenCalled();
 
   expect(chalkSuccess).toHaveBeenCalled();

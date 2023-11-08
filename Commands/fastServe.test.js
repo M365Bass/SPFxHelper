@@ -1,5 +1,6 @@
 const fastServeCommand = require("./fastServe");
 const chalk = require("../Utils/chalk");
+const sharedLiterals = require("../Sources/testLiterals").shared;
 
 const fs = require("fs");
 const cp = require("child_process");
@@ -23,7 +24,7 @@ test("fastServe: needs to be installed globally & needs to be configured in proj
         return Buffer.from("NOT spfx DASH fast-serve"); //spfx-fast-serve not present
     });
 
-  fastServeCommand.fastServe("any path");
+  fastServeCommand.fastServe(sharedLiterals.anyPath);
   expect(command).toHaveBeenCalled();
 
   expect(existsSync).toHaveBeenCalled();
@@ -53,7 +54,7 @@ test("fastServe: already installed globally but needs to be configured in projec
         return Buffer.from("spfx-fast-serve");
     });
 
-  fastServeCommand.fastServe("any path");
+  fastServeCommand.fastServe(sharedLiterals.anyPath);
   expect(command).toHaveBeenCalled();
 
   expect(existsSync).toHaveBeenCalled();
@@ -76,7 +77,7 @@ test("fastServe: already configured in project (meaning should be installed glob
   });
   const execSync = jest.spyOn(cp, "execSync");
 
-  fastServeCommand.fastServe("any path");
+  fastServeCommand.fastServe(sharedLiterals.anyPath);
   expect(command).toHaveBeenCalled();
 
   expect(existsSync).toHaveBeenCalled();
