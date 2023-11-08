@@ -4,8 +4,6 @@ const os = require("os");
 const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
 
 module.exports = function () {
-  console.log("globalTeardown.js");
-
   process.chdir(os.homedir());
 
   fs.rmSync(parentFolderPath, {
