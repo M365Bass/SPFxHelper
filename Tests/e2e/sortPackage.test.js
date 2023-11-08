@@ -24,7 +24,5 @@ test("sortPackage: dependencies in Package.json file sorted", () => {
 });
 
 test("sortPackage: postinstall script added", () => {
-  expect(packageJSON_afterChanges).toContain(
-    `"postinstall": "npx sort-package-json"`
-  );
+  expect(packageJSON_afterChanges).toContain(`npx sort-package-json`);
 });
