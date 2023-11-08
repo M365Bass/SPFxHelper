@@ -39,7 +39,8 @@
       {
         "displayName": "unit",
         "testMatch": [
-          "**/Commands/**.test.js"
+          "**/Commands/**.test.js",
+          "**/Utils/**.test.js"
         ]
       }
     ]
