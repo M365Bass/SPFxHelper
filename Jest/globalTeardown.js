@@ -6,6 +6,8 @@ const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
 module.exports = function () {
   process.chdir(os.homedir());
 
+  execSync("npm uninstall prettier sort-package-json --global", { stdio: [] });
+
   fs.rmSync(parentFolderPath, {
     recursive: true,
     force: true,
