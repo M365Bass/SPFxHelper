@@ -1,7 +1,7 @@
+build.initialize(require("gulp"));
+
 /* npm version */
 const gulp = require("gulp");
-
-build.initialize(require("gulp"));
 
 gulp.task("version-sync", async function () {
   // import gulp utilities to write error messages
