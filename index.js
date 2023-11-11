@@ -32,7 +32,7 @@ const options = program.opts();
 
 let path;
 if (options.workingDir) {
-  path = options.workingDir.replace(`"`, "");
+  path = resolve(options.workingDir);
 } else {
   path = process.cwd();
 }
@@ -51,6 +51,12 @@ if (options.gitInit) {
   gitInstalled = gitInitCommand.gitInit(path);
   gitInstalled && gitCommit("gitInit");
 }
+
+console.log("index_path");
+console.log(path);
+
+console.log("resolve_index_path");
+console.log(resolve(path, "gulpfile.js"));
 
 if (options.npmVersion) {
   npmVersionCommand.npmVersion(resolve(path, "gulpfile.js"));
