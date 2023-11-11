@@ -1,6 +1,6 @@
 const fs = require("fs");
 const os = require("os");
-
+const execSync = require("child_process").execSync;
 const parentFolderPath = require("../Utils/folderPaths").parentFolderPath();
 
 module.exports = function () {
