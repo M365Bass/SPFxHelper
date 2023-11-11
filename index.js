@@ -52,14 +52,8 @@ if (options.gitInit) {
   gitInstalled && gitCommit("gitInit");
 }
 
-console.log("index_path");
-console.log(path);
-
-console.log("resolve_index_path");
-console.log(resolve(path, "gulpfile.js"));
-
 if (options.npmVersion) {
-  npmVersionCommand.npmVersion(resolve(path, "gulpfile.js"));
+  npmVersionCommand.npmVersion(join(path, "gulpfile.js"));
   gitInstalled && gitCommit("npmVersion");
 }
 
@@ -69,7 +63,7 @@ if (options.fastServe) {
 }
 
 if (options.sortPackage) {
-  sortPackageCommand.sortPackage(resolve(path, "package.json"));
+  sortPackageCommand.sortPackage(join(path, "package.json"));
   gitInstalled && gitCommit("sortPackage");
 }
 
