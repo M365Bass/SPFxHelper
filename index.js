@@ -32,7 +32,7 @@ const options = program.opts();
 
 let path;
 if (options.workingDir) {
-  path = options.workingDir.replace(`"`, "");
+  path = resolve(options.workingDir);
 } else {
   path = process.cwd();
 }
@@ -53,7 +53,7 @@ if (options.gitInit) {
 }
 
 if (options.npmVersion) {
-  npmVersionCommand.npmVersion(resolve(path, "gulpfile.js"));
+  npmVersionCommand.npmVersion(join(path, "gulpfile.js"));
   gitInstalled && gitCommit("npmVersion");
 }
 
@@ -63,7 +63,7 @@ if (options.fastServe) {
 }
 
 if (options.sortPackage) {
-  sortPackageCommand.sortPackage(resolve(path, "package.json"));
+  sortPackageCommand.sortPackage(join(path, "package.json"));
   gitInstalled && gitCommit("sortPackage");
 }
 

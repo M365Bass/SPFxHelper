@@ -8,6 +8,10 @@ module.exports = function () {
   process.env.initialPath = process.cwd();
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
+
+  execSync("npm install prettier sort-package-json --global", {
+    stdio: [],
+  });
   execSync("npm install gulp-cli yo @microsoft/generator-sharepoint --global", {
     stdio: [],
   });
