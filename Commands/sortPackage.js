@@ -13,7 +13,7 @@ const sortPackageCommand = {
       "gulpfile already contains npx sort-package-json"
     );
 
-    executeCommand("sort-package-json");
+    executeCommand("npx sort-package-json");
   },
 };
 
