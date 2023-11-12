@@ -12,13 +12,22 @@ module.exports = function () {
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
 
-  execSync("npm install prettier sort-package-json --global", {
-    stdio: [],
+  const packagesToInstallGlobally = [
+    "prettier",
+    "sort-package-json",
+    "gulp-cli",
+    "yo",
+    "@microsoft/generator-sharepoint",
+  ];
+
+  console.log();
+  packagesToInstallGlobally.forEach((package_name) => {
+    execSync(`npm list -g ${package_name} || npm install -g ${package_name}`);
+    console.log(package_name);
   });
-  execSync("npm install gulp-cli yo @microsoft/generator-sharepoint --global", {
-    stdio: [],
-  });
+
   process.chdir(parentFolderPath);
+
   execSync(
     `yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"` +
       ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `,
