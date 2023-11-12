@@ -6,8 +6,9 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 module.exports = function () {
   // save current working dir in to revert to it in teardown
   process.env.initialPath = process.cwd();
-  console.log("process.cwd():JestSetup");
-  console.log(process.cwd());
+  execSync("npm link", {
+    stdio: [],
+  });
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
 

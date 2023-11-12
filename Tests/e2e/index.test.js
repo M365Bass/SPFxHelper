@@ -9,16 +9,12 @@ const wpFolderPath_IndexTest =
   require("../../Utils/folderPaths").wpFolderPath_IndexTest();
 
 beforeEach(() => {
-  console.log("process.cwd():1");
-  console.log(process.cwd());
   // save current working dir in to revert to it in teardown
   process.env.initialPath_IndexTest = process.cwd();
 
   fs.mkdirSync(parentFolderPath_IndexTest, { recursive: true });
 
   process.chdir(parentFolderPath_IndexTest);
-  console.log("process.cwd():2");
-  console.log(process.cwd());
   execSync(
     `yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"` +
       ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `,
@@ -26,18 +22,11 @@ beforeEach(() => {
   );
 
   process.chdir(wpFolderPath_IndexTest);
-  console.log("process.cwd():3");
-  console.log(process.cwd());
-
-  console.log("process.env.initialPath");
-  console.log(process.env.initialPath);
 
   execSync(`spfx-jack -v -f -g -s -p`);
 });
 
 test("indexTest: fast-serve folder created", () => {
-  console.log(process.cwd());
-
   expect(
     fs.existsSync(resolve(wpFolderPath_IndexTest, "fast-serve"))
   ).toBeTruthy();
