@@ -28,6 +28,10 @@ beforeEach(() => {
   process.chdir(wpFolderPath_IndexTest);
   console.log("process.cwd():3");
   console.log(process.cwd());
+
+  console.log("process.env.initialPath");
+  console.log(process.env.initialPath);
+
   execSync(`spfx-jack -v -f -g -s -p`);
 });
 
