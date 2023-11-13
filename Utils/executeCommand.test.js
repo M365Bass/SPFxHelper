@@ -2,6 +2,7 @@ const executeCommandUtil = require("./executeCommand");
 const cp = require("child_process");
 const fs = require("fs");
 const chalk = require("../Utils/chalk");
+const sharedLiterals = require("../Sources/testLiterals").shared;
 
 test("executeCommand: return successfully", () => {
   const util = jest.spyOn(executeCommandUtil, "executeCommand");

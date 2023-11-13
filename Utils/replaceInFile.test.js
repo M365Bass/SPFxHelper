@@ -44,6 +44,11 @@ test("replaceInFile: check string already exists", () => {
 
 test("replaceInFile: replace 23 with 56", () => {
   const util = jest.spyOn(replaceInFileUtil, "replaceInFile");
+  const ppUtil = jest
+    .spyOn(prettifyPathUtil, "prettifyPath")
+    .mockImplementation(() => {
+      console.log("mocked prettifyPath");
+    });
   const readFileSync = jest.spyOn(fs, "readFileSync").mockImplementation(() => {
     return baseFileContents;
   });
@@ -68,6 +73,7 @@ test("replaceInFile: replace 23 with 56", () => {
   expect(util).toHaveBeenCalled();
 
   expect(chalkMessage).toHaveBeenCalledWith("initialMessage");
+  expect(ppUtil).toHaveBeenCalled();
   expect(readFileSync).toHaveBeenCalled();
   expect(readFileSync).toHaveReturnedWith(baseFileContents);
   expect(writeFileSync).toHaveBeenCalled();

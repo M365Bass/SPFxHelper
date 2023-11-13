@@ -10,7 +10,6 @@ const executeCommandUtil = {
       cp.execSync(command);
       chalk.Success(command + " ran successfully");
     } catch (error) {
-      console.log(error.message);
       chalk.Error(command + " did not run successfully");
       fs.writeFileSync("err.log", error.message);
       chalk.Error("Error details logged to err.log in " + process.cwd());
