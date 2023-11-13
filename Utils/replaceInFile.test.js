@@ -46,9 +46,7 @@ test("replaceInFile: replace 23 with 56", () => {
   const util = jest.spyOn(replaceInFileUtil, "replaceInFile");
   const ppUtil = jest
     .spyOn(prettifyPathUtil, "prettifyPath")
-    .mockImplementation(() => {
-      console.log("mocked prettifyPath");
-    });
+    .mockImplementation(() => {});
   const readFileSync = jest.spyOn(fs, "readFileSync").mockImplementation(() => {
     return baseFileContents;
   });
