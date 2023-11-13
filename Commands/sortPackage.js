@@ -1,7 +1,7 @@
 const sortPackageCommand = {
   sortPackage: function (packageJSON_filePath) {
     const replaceInFile = require("../Utils/replaceInFile");
-    const executeCommand = require("../Utils/executeCommand");
+    const executeCommandUtil = require("../Utils/executeCommand");
 
     replaceInFile(
       "npx sort-package-json",
@@ -13,7 +13,7 @@ const sortPackageCommand = {
       "gulpfile already contains npx sort-package-json"
     );
 
-    executeCommand("sort-package-json");
+    executeCommandUtil.executeCommand("sort-package-json");
   },
 };
 

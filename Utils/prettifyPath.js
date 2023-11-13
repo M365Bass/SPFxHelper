@@ -1,5 +1,5 @@
-const executeCommand = require("./executeCommand");
+const executeCommandUtil = require("./executeCommand");
 
 module.exports = function (path) {
-  executeCommand("prettier --write " + path);
+  executeCommandUtil.executeCommand("prettier --write " + path);
 };
