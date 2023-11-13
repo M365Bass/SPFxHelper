@@ -12,15 +12,22 @@ module.exports = function () {
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
 
-  const packagesToInstallGlobally = [
+  let packagesToInstallGlobally = [
     "prettier",
     "sort-package-json",
     "gulp-cli",
     "yo",
-    "@microsoft/generator-sharepoint",
   ];
 
   console.log();
+  console.log(process.version);
+  if (process.version.startsWith("v16")) {
+    packagesToInstallGlobally.push("@microsoft/generator-sharepoint@1.17.4");
+  } else if (process.version.startsWith("v18")) {
+    packagesToInstallGlobally.push("@microsoft/generator-sharepoint@1.18");
+  }
+  console.log("checked");
+
   packagesToInstallGlobally.forEach((package_name) => {
     execSync(`npm list -g ${package_name} || npm install -g ${package_name}`);
     console.log(package_name);
