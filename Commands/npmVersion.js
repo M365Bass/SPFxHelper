@@ -4,9 +4,9 @@ const npmVersionCommand = {
     const dirname = require("path").dirname;
     const readFileSync = require("fs").readFileSync;
 
-    const replaceInFile = require("../Utils/replaceInFile");
+    const replaceInFileUtil = require("../Utils/replaceInFile");
     const appendToJSONFileUtil = require("../Utils/appendToJSONFile");
-    const prettifyPath = require("../Utils/prettifyPath");
+    const prettifyPathUtil = require("../Utils/prettifyPath");
 
     const npmVersion_stringLiterals =
       require("../Sources/stringLiterals").npmVersion;
@@ -14,7 +14,7 @@ const npmVersionCommand = {
     const gulpSourceFile = join(__dirname, "..", "Sources", "gulp.js");
     const gulpSourceFileData = readFileSync(gulpSourceFile, "utf8");
 
-    replaceInFile(
+    replaceInFileUtil.replaceInFile(
       npmVersion_stringLiterals.replaceInFile.messages.initialMessage,
       gulpfilePath,
       npmVersion_stringLiterals.replaceInFile.source,
@@ -36,7 +36,7 @@ const npmVersionCommand = {
       npmVersion_stringLiterals.appendToJSONFile.messages.errorMessage
     );
 
-    prettifyPath(packageJSON_filePath);
+    prettifyPathUtil.prettifyPath(packageJSON_filePath);
   },
 };
 

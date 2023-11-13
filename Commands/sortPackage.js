@@ -1,9 +1,9 @@
 const sortPackageCommand = {
   sortPackage: function (packageJSON_filePath) {
-    const replaceInFile = require("../Utils/replaceInFile");
+    const replaceInFileUtil = require("../Utils/replaceInFile");
     const executeCommandUtil = require("../Utils/executeCommand");
 
-    replaceInFile(
+    replaceInFileUtil.replaceInFile(
       "npx sort-package-json",
       packageJSON_filePath,
       `"scripts": {`,

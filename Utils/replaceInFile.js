@@ -1,32 +1,37 @@
 const fs = require("fs");
 const chalk = require("./chalk");
 
-const prettifyPath = require("../Utils/prettifyPath");
+const prettifyPathUtil = require("../Utils/prettifyPath");
 
-/**
- * @param checkString string to check if exists before replace occurs
- */
-module.exports = function (
-  initialMessage,
-  filePath,
-  textToReplace,
-  replacementText,
-  checkString,
-  successMessage,
-  WarningMessage
-) {
-  chalk.Message(initialMessage);
+const replaceInFileUtil = {
+  /**
+   * @param checkString string to check if exists before replace occurs
+   */
 
-  prettifyPath(filePath);
+  replaceInFile: function (
+    initialMessage,
+    filePath,
+    textToReplace,
+    replacementText,
+    checkString,
+    successMessage,
+    WarningMessage
+  ) {
+    chalk.Message(initialMessage);
 
-  const fileData = fs.readFileSync(filePath, "utf8");
+    prettifyPathUtil.prettifyPath(filePath);
 
-  if (fileData.indexOf(checkString) === -1) {
-    var result = fileData.replace(textToReplace, replacementText);
+    const fileData = fs.readFileSync(filePath, "utf8");
 
-    fs.writeFileSync(filePath, result);
-    chalk.Success(successMessage);
-  } else {
-    chalk.Warning(WarningMessage);
-  }
+    if (fileData.indexOf(checkString) === -1) {
+      var result = fileData.replace(textToReplace, replacementText);
+
+      fs.writeFileSync(filePath, result);
+      chalk.Success(successMessage);
+    } else {
+      chalk.Warning(WarningMessage);
+    }
+  },
 };
+
+module.exports = replaceInFileUtil;
