@@ -124,6 +124,38 @@ test("gitInit: git needs initialisation & fails", () => {
   expect(gInit).toBe(true);
 });
 
+test("gitInit: git does not return a version", () => {
+  const command = jest.spyOn(gitInitCommand, "gitInit");
+  const execSync = jest.spyOn(cp, "execSync").mockImplementation(() => {
+    return Buffer.from("anything but git version");
+  });
+
+  gitInitCommand.gitInit(sharedLiterals.anyPath);
+  expect(command).toHaveBeenCalled();
+
+  expect(execSync).not.toHaveReturnedWith(Buffer.from("git version"));
+});
+
+test("gitInit: git does not return a status", () => {
+  const command = jest.spyOn(gitInitCommand, "gitInit");
+  const execSync = jest
+    .spyOn(cp, "execSync")
+    .mockImplementation((commandToRun) => {
+      if (commandToRun === "git --version") return Buffer.from("git version");
+      else if (commandToRun === "git status")
+        return Buffer.from("anything but On branch");
+    });
+  const chdir = jest.spyOn(process, "chdir").mockImplementation(() => {});
+
+  gitInitCommand.gitInit(sharedLiterals.anyPath);
+  expect(command).toHaveBeenCalled();
+
+  expect(execSync).toHaveBeenCalledTimes(2);
+  expect(execSync).toHaveReturnedWith(Buffer.from("git version"));
+  expect(chdir).toHaveBeenCalled();
+  expect(execSync).not.toHaveReturnedWith(Buffer.from("On branch"));
+});
+
 afterEach(() => {
   // restore the spy created with spyOn
   jest.restoreAllMocks();

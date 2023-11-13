@@ -1,5 +1,12 @@
-const executeCommand = require("./executeCommand");
+const executeCommandUtil = require("./executeCommand");
 
-module.exports = function (path) {
-  executeCommand("prettier --write " + path);
+const prettifyPathUtil = {
+  /**
+   * @param checkString string to check if exists before replace occurs
+   */
+
+  prettifyPath: function (path) {
+    executeCommandUtil.executeCommand("prettier --write " + path);
+  },
 };
+module.exports = prettifyPathUtil;

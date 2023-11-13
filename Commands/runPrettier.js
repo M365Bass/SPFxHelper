@@ -1,8 +1,8 @@
 const runPrettierCommand = {
   runPrettier: function (path) {
-    const prettifyPath = require("../Utils/prettifyPath");
+    const prettifyPathUtil = require("../Utils/prettifyPath");
 
-    prettifyPath(path);
+    prettifyPathUtil.prettifyPath(path);
   },
 };
 
