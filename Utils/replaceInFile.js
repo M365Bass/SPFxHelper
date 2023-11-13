@@ -24,12 +24,8 @@ module.exports = function (
   if (fileData.indexOf(checkString) === -1) {
     var result = fileData.replace(textToReplace, replacementText);
 
-    if (result !== fileData) {
-      fs.writeFileSync(filePath, result);
-      chalk.Success(successMessage);
-    } else {
-      chalk.Warning(WarningMessage);
-    }
+    fs.writeFileSync(filePath, result);
+    chalk.Success(successMessage);
   } else {
     chalk.Warning(WarningMessage);
   }
