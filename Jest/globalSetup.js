@@ -28,7 +28,9 @@ module.exports = function () {
   }
 
   packagesToInstallGlobally.forEach((package_name) => {
-    execSync(`npm list -g ${package_name} || npm install -g ${package_name}`);
+    execSync(
+      `npm list -g ${package_name} || npm install -g ${package_name} --silent`
+    );
     console.log(package_name);
   });
 
