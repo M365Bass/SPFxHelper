@@ -5,14 +5,12 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 
 module.exports = function () {
   // save current working dir in to revert to it in teardown
-  console.log("process.env");
-  console.log(process.env);
 
   process.env.initialPath = process.cwd();
+  runningInGitHub = process.env.GITHUB_JOB === undefined ? false : true;
 
-  execSync("npm cache clean --force");
-
-  execSync("npm link");
+  runningInGitHub && execSync("npm cache clean --force");
+  runningInGitHub && execSync("npm link");
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
 
@@ -21,8 +19,9 @@ module.exports = function () {
     "sort-package-json",
     "gulp-cli",
     "yo",
-    "spfx-fast-serve",
   ];
+
+  runningInGitHub && packagesToInstallGlobally.push("spfx-fast-serve");
 
   console.log();
   console.log(process.version);
@@ -42,7 +41,8 @@ module.exports = function () {
 
   execSync(
     `yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"` +
-      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `
+      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `,
+    { stdio: [] }
   );
 
   process.chdir(wpFolderPath);
