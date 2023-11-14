@@ -5,6 +5,9 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 
 module.exports = function () {
   // save current working dir in to revert to it in teardown
+  console.log("process.env");
+  console.log(process.env);
+
   process.env.initialPath = process.cwd();
 
   execSync("npm cache clean --force");
