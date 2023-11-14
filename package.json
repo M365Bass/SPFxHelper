@@ -26,8 +26,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "sort-object-keys": "^1.1.3",
-    "spfx-fast-serve": "^3.0.7"
+    "sort-object-keys": "^1.1.3"
   },
   "jest": {
     "projects": [
