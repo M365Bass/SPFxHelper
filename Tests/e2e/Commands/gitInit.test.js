@@ -1,7 +1,7 @@
 const fs = require("fs");
 const resolve = require("path").resolve;
-const wpFolderPath = require("../../Utils/folderPaths").wpFolderPath();
-const gitInitCommand = require("../../Commands/gitInit");
+const wpFolderPath = require("../../../Utils/folderPaths").wpFolderPath();
+const gitInitCommand = require("../../../Commands/gitInit");
 
 beforeAll(() => {
   gitInitCommand.gitInit(wpFolderPath);
