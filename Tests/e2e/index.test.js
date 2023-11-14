@@ -17,8 +17,7 @@ beforeEach(() => {
   process.chdir(parentFolderPath_IndexTest);
   execSync(
     `yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"` +
-      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `,
-    { stdio: [] }
+      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `
   );
 
   process.chdir(wpFolderPath_IndexTest);

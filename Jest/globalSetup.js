@@ -6,9 +6,12 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 module.exports = function () {
   // save current working dir in to revert to it in teardown
   process.env.initialPath = process.cwd();
-  execSync("npm link", {
-    stdio: [],
-  });
+
+  bassemkhalil@M1 spfx-jack % 
+
+  execSync("npm cache clean --force");
+
+  execSync("npm link");
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
 
@@ -37,8 +40,7 @@ module.exports = function () {
 
   execSync(
     `yo @microsoft/sharepoint --solution-name "VanillaSolution" --framework "react"` +
-      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `,
-    { stdio: [] }
+      ` --component-type "webpart" --component-name "WebPart1" --skip-install --environment "spo" `
   );
 
   process.chdir(wpFolderPath);

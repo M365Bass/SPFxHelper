@@ -39,7 +39,7 @@ test("gitInit: git already initialised", () => {
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalledTimes(2);
   // execSync("git --version")
-  // execSync("git status", { stdio: [] })
+  // execSync("git status")
   expect(chdir).toHaveBeenCalled();
   expect(exit).not.toHaveBeenCalled();
 
@@ -69,8 +69,8 @@ test("gitInit: git needs initialisation & succeeds", () => {
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalledTimes(3);
   // execSync("git --version")
-  // execSync("git status", { stdio: [] })
-  // execSync("git init -b main", { stdio: [] });
+  // execSync("git status")
+  // execSync("git init -b main");
   expect(chdir).toHaveBeenCalled();
   expect(exit).not.toHaveBeenCalled();
 
@@ -104,8 +104,8 @@ test("gitInit: git needs initialisation & fails", () => {
   expect(command).toHaveBeenCalled();
   expect(execSync).toHaveBeenCalledTimes(3);
   // execSync("git --version")
-  // execSync("git status", { stdio: [] })
-  // execSync("git init -b main", { stdio: [] });
+  // execSync("git status")
+  // execSync("git init -b main");
   expect(chdir).toHaveBeenCalled();
   expect(writeFileSync).toHaveBeenCalledWith(
     "err.log",
