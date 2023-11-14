@@ -27,3 +27,6 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm test
+  coverage-report:
+    uses: ./.github/workflows/jest_coverage_report.yml
+    needs: run-tests

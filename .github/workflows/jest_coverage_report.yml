@@ -5,7 +5,7 @@ name: Jest coverage report
 on:
   push:
     branches: [main]
-  pull_request:
+  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
