@@ -30,3 +30,7 @@ jobs:
   coverage-report:
     uses: ./.github/workflows/jest_coverage_report.yml
     needs: run-tests
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
