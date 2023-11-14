@@ -7,8 +7,6 @@ module.exports = function () {
   // save current working dir in to revert to it in teardown
   process.env.initialPath = process.cwd();
 
-  bassemkhalil@M1 spfx-jack % 
-
   execSync("npm cache clean --force");
 
   execSync("npm link");
