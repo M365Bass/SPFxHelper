@@ -2,3 +2,5 @@ testWPs
 *.test.js
 coverage
 report.json
+.github/*
+Jest/*
