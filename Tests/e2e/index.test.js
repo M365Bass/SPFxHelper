@@ -23,7 +23,20 @@ beforeEach(() => {
 
   process.chdir(wpFolderPath_IndexTest);
 
-  execSync(`spfx-jack -v -f -g -s -p`);
+  console.log("process.env.initialPath");
+  console.log();
+
+  console.log("executing spfx-jack commands: gitInit");
+  const indexPath = join(process.env.initialPath, "index.js");
+  execSync(`node ${indexPath} -g`);
+  console.log("executing spfx-jack commands: npmVersion");
+  execSync(`spfx-jack -v`);
+  console.log("executing spfx-jack commands: fastServe");
+  execSync(`spfx-jack -f`);
+  console.log("executing spfx-jack commands: sortPackage");
+  execSync(`spfx-jack -s`);
+  console.log("executing spfx-jack commands: prettier");
+  execSync(`spfx-jack -p`);
 });
 
 test("indexTest: fast-serve folder created", () => {
