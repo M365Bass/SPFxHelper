@@ -1,8 +1,9 @@
 const fs = require("fs");
 const join = require("path").join;
-const wpFolderPath = require("../../Utils/folderPaths").wpFolderPath();
-const parentFolderPath = require("../../Utils/folderPaths").parentFolderPath();
-const runPrettierCommand = require("../../Commands/runPrettier");
+const wpFolderPath = require("../../../Utils/folderPaths").wpFolderPath();
+const parentFolderPath =
+  require("../../../Utils/folderPaths").parentFolderPath();
+const runPrettierCommand = require("../../../Commands/runPrettier");
 
 const parentWP_filePath = join(
   wpFolderPath,

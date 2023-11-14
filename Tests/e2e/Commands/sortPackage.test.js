@@ -1,7 +1,7 @@
 const fs = require("fs");
 const join = require("path").join;
-const wpFolderPath = require("../../Utils/folderPaths").wpFolderPath();
-const sortPackageCommand = require("../../Commands/sortPackage");
+const wpFolderPath = require("../../../Utils/folderPaths").wpFolderPath();
+const sortPackageCommand = require("../../../Commands/sortPackage");
 const sortObject = require("sort-object-keys");
 
 const packageJSON_filePath = join(wpFolderPath, "package.json");
