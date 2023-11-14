@@ -11,17 +11,13 @@ const gitInitCommand = {
         try {
           chalk.Message("Checking whether git is initialised");
           process.chdir(folderPath);
-          if (
-            execSync("git status", { stdio: [] })
-              .toString()
-              .startsWith("On branch")
-          ) {
+          if (execSync("git status").toString().startsWith("On branch")) {
             chalk.Warning("git already initialised");
           }
         } catch (error) {
           try {
             chalk.Message("git initialisation started");
-            execSync("git init -b main", { stdio: [] });
+            execSync("git init -b main");
             chalk.Success("git initialisation completed");
           } catch (error) {
             chalk.Error("git was not initialised");
