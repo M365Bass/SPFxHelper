@@ -6,9 +6,8 @@ const wpFolderPath = require("../Utils/folderPaths").wpFolderPath();
 module.exports = function () {
   // save current working dir in to revert to it in teardown
   process.env.initialPath = process.cwd();
-  execSync("npm link", {
-    stdio: [],
-  });
+  execSync("npm link");
+  execSync("npm cache clean --force");
 
   fs.mkdirSync(parentFolderPath, { recursive: true });
 
@@ -20,13 +19,12 @@ module.exports = function () {
   ];
 
   console.log();
-  console.log(process.version);
+  console.log(`running node ${process.version}`);
   if (process.version.startsWith("v16")) {
     packagesToInstallGlobally.push("@microsoft/generator-sharepoint@1.17.4");
   } else if (process.version.startsWith("v18")) {
     packagesToInstallGlobally.push("@microsoft/generator-sharepoint@1.18");
   }
-  console.log("checked");
 
   packagesToInstallGlobally.forEach((package_name) => {
     execSync(`npm list -g ${package_name} || npm install -g ${package_name}`);
