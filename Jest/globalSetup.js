@@ -18,6 +18,7 @@ module.exports = function () {
     "sort-package-json",
     "gulp-cli",
     "yo",
+    "spfx-fast-serve",
   ];
 
   console.log();
