@@ -26,7 +26,6 @@ module.exports = function () {
   } else if (process.version.startsWith("v18")) {
     packagesToInstallGlobally.push("@microsoft/generator-sharepoint@1.18");
   }
-  console.log("checked");
 
   packagesToInstallGlobally.forEach((package_name) => {
     execSync(`npm list -g ${package_name} || npm install -g ${package_name}`);
