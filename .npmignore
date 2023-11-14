@@ -1,3 +1,4 @@
 testWPs
 *.test.js
-ManualTests.md
+coverage
+report.json
