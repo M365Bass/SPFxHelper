@@ -16,11 +16,13 @@
     "test:coverage": "jest --coverage",
     "test:e2e": "jest --selectProjects e2e",
     "test:unit": "jest --selectProjects unit",
-    "test:jest_coverage_report": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json"
+    "test:jest_coverage_report": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json",
+    "postversion": "npx sort-package-json"
   },
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
+    "npx": "^10.2.2",
     "prettier": "^3.0.3",
     "sort-package-json": "^2.6.0"
   },
