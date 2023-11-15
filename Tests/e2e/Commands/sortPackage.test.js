@@ -8,8 +8,10 @@ const packageJSON_filePath = join(wpFolderPath, "package.json");
 
 beforeAll(() => {
   packageJSON_beforeChanges = fs.readFileSync(packageJSON_filePath, "utf8");
+  console.log(`packageJSON_beforeChanges: ${packageJSON_beforeChanges}`);
   sortPackageCommand.sortPackage(packageJSON_filePath);
   packageJSON_afterChanges = fs.readFileSync(packageJSON_filePath, "utf8");
+  console.log(`packageJSON_afterChanges: ${packageJSON_afterChanges}`);
 });
 
 test("sortPackage: Package.json file changed", () => {
