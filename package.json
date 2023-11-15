@@ -17,7 +17,7 @@
     "test:e2e": "jest --selectProjects e2e",
     "test:jest_coverage_report": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json",
     "test:unit": "jest --selectProjects unit",
-    "postversion": "npx sort-package-json"
+    "preversion": "npx sort-package-json && git add . && git commit --amend --no-edit"
   },
   "jest": {
     "projects": [
