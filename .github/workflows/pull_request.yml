@@ -24,9 +24,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
-          cache: "npm"
-      - run: npm ci
-      - run: npm test
+          # cache: "npm"
+      - run: npm cit
   coverage-report:
     uses: ./.github/workflows/jest_coverage_report.yml
     needs: run-tests
