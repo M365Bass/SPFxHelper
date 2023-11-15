@@ -16,7 +16,7 @@ module.exports = function () {
     "prettier",
     "sort-package-json",
     "gulp-cli",
-    "yo",
+    "yo@4.3.1",
   ];
 
   console.log();
@@ -28,10 +28,10 @@ module.exports = function () {
   }
 
   packagesToInstallGlobally.forEach((package_name) => {
+    console.log(`Validating package: ${package_name}`);
     execSync(
       `npm list -g ${package_name} || npm install -g ${package_name} --silent`
     );
-    console.log(package_name);
   });
 
   process.chdir(parentFolderPath);
