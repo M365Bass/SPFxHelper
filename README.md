@@ -4,11 +4,11 @@
 
 Helper to automate steps after initialising a new SPFx project. Current features:
 
-1. [SPFx Fast Serve](https://github.com/s-KaiNet/spfx-fast-serve) by Sergei Sergeev
-2. [Sync Version](https://m365bass.github.io/posts/2021-05-19.html) adapted from [Stefan Bauer](https://n8d.at/how-to-version-new-sharepoint-framework-projects) and [Hugo Bernier](https://tahoeninja.blog/posts/display-the-solution-version-in-your-web-part/)
-3. [sort-package-json](https://github.com/keithamus/sort-package-json)
-4. [Prettier](https://prettier.io/docs/en/cli.html)
-5. Git
+1. **Run SPFx serve command as fast as possible** using [SPFx Fast Serve](https://github.com/s-KaiNet/spfx-fast-serve) by Sergei Sergeev
+2. **Automatically align SharePoint version number to npm's** by updating version number in SPFx package-solution file after running [npm version](https://docs.npmjs.com/cli/v8/commands/npm-version). I use my own script [Sync Version](https://m365bass.github.io/posts/2021-05-19.html) adapted from [Stefan Bauer](https://n8d.at/how-to-version-new-sharepoint-framework-projects) and [Hugo Bernier](https://tahoeninja.blog/posts/display-the-solution-version-in-your-web-part/).
+3. **Create git commits** when git is installed. This ensures transparency as to what was done using spfx-jack.
+4. **Format all files** using [Prettier](https://prettier.io/docs/en/cli.html) to create a well-formatted solution baseline. This is because when using format on save, changes made to a file for the first time also create many changes related to formatting. By formatting the solution ahead, we ensure any subsequent changes are easier to review.
+5. **Sort entries in package.json file** for better readibility using [sort-package-json](https://github.com/keithamus/sort-package-json)
 
 # Motivation
 
