@@ -7,8 +7,8 @@ const fastServeCommand = {
 
     if (!existsSync(join(folderPath, "fast-serve", "config.json"))) {
       process.chdir(folderPath);
-      chalk.Message("Running npx spfx-fast-serve");
-      execSync("npx --yes spfx-fast-serve");
+      chalk.Message("Running spfx-fast-serve");
+      execSync("spfx-fast-serve");
       chalk.Success("spfx-fast-serve config completed");
     } else {
       chalk.Warning("spfx-fast-serve already configured");

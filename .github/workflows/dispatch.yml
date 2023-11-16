@@ -17,13 +17,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         version: [16, 18]
-        include:
-          - os: ubuntu-latest
-            npm_path: /home/runner/.npm/_logs/
-          - os: macos-latest
-            npm_path: /Users/runner/.npm/_logs/
-          - os: windows-latest
-            npm_path: C:\npm\cache\_logs
 
     runs-on: ${{ matrix.os }}
     continue-on-error: true
@@ -32,10 +25,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
-      - run: npm config get cache
-      - run: npm cit
-      - uses: actions/upload-artifact@v3
-        if: ${{ failure() }}
-        with:
-          name: my-artifact-${{ matrix.os }}-${{ matrix.version }}
-          path: ${{ matrix.npm_path }}
+      - run: yarn install
+      - run: yarn test

@@ -29,7 +29,7 @@ test("fastServe: needs to be installed globally & needs to be configured in proj
 
   expect(existsSync).toHaveBeenCalled();
   expect(chdir).toHaveBeenCalled();
-  expect(chalkMessage).toHaveBeenCalledWith("Running npx spfx-fast-serve");
+  expect(chalkMessage).toHaveBeenCalledWith("Running spfx-fast-serve");
   expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve config completed");
 
   expect(execSync).toHaveBeenCalledTimes(1);
@@ -52,7 +52,7 @@ test("fastServe: already installed globally but needs to be configured in projec
 
   expect(existsSync).toHaveBeenCalled();
   expect(chdir).toHaveBeenCalled();
-  expect(chalkMessage).toHaveBeenCalledWith("Running npx spfx-fast-serve");
+  expect(chalkMessage).toHaveBeenCalledWith("Running spfx-fast-serve");
   expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve config completed");
 
   expect(execSync).toHaveBeenCalledTimes(1);
