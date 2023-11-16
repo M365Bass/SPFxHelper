@@ -37,5 +37,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: my-artifact
+          name: my-artifact-${{ matrix.os }}-${{ matrix.version }}
           path: ${{ matrix.npm_path }}
