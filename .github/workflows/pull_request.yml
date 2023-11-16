@@ -34,7 +34,7 @@ jobs:
           node-version: ${{ matrix.version }}
       - run: npm cit
       - uses: actions/upload-artifact@v3
-        if: always()
+        if: ${{ failure() }}
         with:
           name: my-artifact-${{ matrix.os }}-${{ matrix.version }}
           path: ${{ matrix.npm_path }}

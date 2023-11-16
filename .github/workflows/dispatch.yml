@@ -35,7 +35,7 @@ jobs:
       - run: npm config get cache
       - run: npm cit
       - uses: actions/upload-artifact@v3
-        if: always()
+        if: ${{ failure() }}
         with:
           name: my-artifact-${{ matrix.os }}-${{ matrix.version }}
           path: ${{ matrix.npm_path }}
