@@ -12,7 +12,7 @@ const fastServeCommand = {
       if (npmGlobalPackages.indexOf("spfx-fast-serve") === -1) {
         chalk.Message("Installing spfx-fast-serve globally");
         // try {
-        execSync("npm install spfx-fast-serve -g --silent");
+        execSync("npm install spfx-fast-serve -g --dd");
         // } catch (error) {
         //   console.log(error.Message);
         // }
