@@ -35,6 +35,7 @@ jobs:
       - run: npm config get cache
       - run: npm cit
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: my-artifact
           path: ${{ matrix.npm_path }}
