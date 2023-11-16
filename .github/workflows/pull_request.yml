@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.version }}
           cache: "npm"
+      - run: npm i -g spfx-fast-serve
       - run: npm ci
       - run: npm test
   coverage-report:
