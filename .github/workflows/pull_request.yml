@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.version }}
           cache: "npm"
-      - run: npm i -g spfx-fast-serve
+      - run: npm i -g npm@9.9.1
         if: ${{ matrix.version == 18  }}
       - run: npm cit
   coverage-report:
