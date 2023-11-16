@@ -28,18 +28,11 @@ test("fastServe: needs to be installed globally & needs to be configured in proj
   expect(command).toHaveBeenCalled();
 
   expect(existsSync).toHaveBeenCalled();
-  expect(chalkMessage).toHaveBeenCalledWith("Running npm list -g --depth=0");
-  expect(chalkMessage).toHaveBeenCalledWith(
-    "Installing spfx-fast-serve globally"
-  );
-  expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve installed");
   expect(chdir).toHaveBeenCalled();
-  expect(chalkMessage).toHaveBeenCalledWith("Running spfx-fast-serve");
+  expect(chalkMessage).toHaveBeenCalledWith("Running npx spfx-fast-serve");
   expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve config completed");
 
-  expect(execSync).toHaveBeenCalledTimes(3);
-  // execSync("npm list -g --depth=0").toString();
-  // execSync("npm install spfx-fast-serve -g");
+  expect(execSync).toHaveBeenCalledTimes(1);
   // execSync("spfx-fast-serve");
 });
 
@@ -58,16 +51,11 @@ test("fastServe: already installed globally but needs to be configured in projec
   expect(command).toHaveBeenCalled();
 
   expect(existsSync).toHaveBeenCalled();
-  expect(chalkMessage).toHaveBeenCalledWith("Running npm list -g --depth=0");
-  expect(chalkMessage).toHaveBeenCalledWith(
-    "spfx-fast-serve already installed globally"
-  );
   expect(chdir).toHaveBeenCalled();
-  expect(chalkMessage).toHaveBeenCalledWith("Running spfx-fast-serve");
+  expect(chalkMessage).toHaveBeenCalledWith("Running npx spfx-fast-serve");
   expect(chalkSuccess).toHaveBeenCalledWith("spfx-fast-serve config completed");
 
-  expect(execSync).toHaveBeenCalledTimes(2);
-  // execSync("npm list -g --depth=0").toString();
+  expect(execSync).toHaveBeenCalledTimes(1);
   // execSync("spfx-fast-serve");
 });
 
