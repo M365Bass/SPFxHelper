@@ -26,6 +26,7 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: "npm"
       - run: npm list -g npm
+        continue-on-error: true
       - run: npm i -g npm@9.9.1
         if: ${{ matrix.version == 18  }}
       - run: npm list -g npm
