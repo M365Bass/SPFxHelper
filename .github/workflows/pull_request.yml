@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
-          cache: "npm
+          cache: "npm"
       - run: npm list -g npm
       - run: npm i -g npm@9.9.1
         if: ${{ matrix.version == 18  }}
