@@ -24,5 +24,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
-      - run: npm config get cache
+      - run: npm i -g spfx-fast-serve
+        if: ${{ matrix.version == 18  }}
       - run: npm cit
