@@ -25,11 +25,8 @@ jobs:
         with:
           node-version: ${{ matrix.version }}
           cache: "npm"
-      - run: npm list -g npm
-        continue-on-error: true
-      - run: npm i -g npm@9.9.1
+      - run: npm i -g spfx-fast-serve
         if: ${{ matrix.version == 18  }}
-      - run: npm list -g npm
       - run: npm cit
   coverage-report:
     uses: ./.github/workflows/jest_coverage_report.yml
