@@ -14,7 +14,7 @@ const sortPackageCommand = {
     );
 
     executeCommandUtil.executeCommand("sort-package-json");
-  },
+  }
 };
 
 module.exports = sortPackageCommand;

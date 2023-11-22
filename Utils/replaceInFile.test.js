@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const replaceInFileUtil = require("./replaceInFile");
 const prettifyPathUtil = require("./prettifyPath");
 

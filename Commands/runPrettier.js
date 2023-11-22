@@ -3,7 +3,7 @@ const runPrettierCommand = {
     const prettifyPathUtil = require("../Utils/prettifyPath");
 
     prettifyPathUtil.prettifyPath(path);
-  },
+  }
 };
 
 module.exports = runPrettierCommand;

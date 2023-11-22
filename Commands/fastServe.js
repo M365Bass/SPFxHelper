@@ -24,7 +24,7 @@ const fastServeCommand = {
     } else {
       chalk.Warning("spfx-fast-serve already configured");
     }
-  },
+  }
 };
 
 module.exports = fastServeCommand;

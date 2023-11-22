@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const gitInitCommand = require("./gitInit");
 const chalk = require("../Utils/chalk");
 const sharedLiterals = require("../Sources/testLiterals").shared;

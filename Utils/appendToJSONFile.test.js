@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const appendToJSONFileUtil = require("./appendToJSONFile");
 const chalk = require("./chalk");
 const sharedLiterals = require("../Sources/testLiterals").shared;
@@ -55,7 +57,7 @@ test("appendToJSONFile: append failed: container not found", () => {
 
   const writeFileSync = jest
     .spyOn(fs, "writeFileSync")
-    .mockImplementation((path, content) => {
+    .mockImplementation((path) => {
       expect(path).toBe("err.log");
     });
 

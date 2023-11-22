@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const fs = require("fs");
 const join = require("path").join;
 const wpFolderPath = require("../../../Utils/folderPaths").wpFolderPath();

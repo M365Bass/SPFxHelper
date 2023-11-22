@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const fs = require("fs");
 const os = require("os");
 const resolve = require("path").resolve;
@@ -53,7 +55,7 @@ afterEach(() => {
 
   fs.rmSync(parentFolderPath_IndexTest, {
     recursive: true,
-    force: true,
+    force: true
   });
 
   // revert to initial working dir from setup

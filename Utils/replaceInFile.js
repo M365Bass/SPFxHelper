@@ -31,7 +31,7 @@ const replaceInFileUtil = {
     } else {
       chalk.Warning(WarningMessage);
     }
-  },
+  }
 };
 
 module.exports = replaceInFileUtil;
