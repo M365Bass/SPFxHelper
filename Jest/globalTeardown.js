@@ -10,7 +10,7 @@ module.exports = function () {
 
   fs.rmSync(parentFolderPath, {
     recursive: true,
-    force: true,
+    force: true
   });
 
   // revert to initial working dir from setup

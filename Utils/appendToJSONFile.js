@@ -24,7 +24,7 @@ const appendToJSONFileUtil = {
       fs.writeFileSync("err.log", error.message);
       chalk.Error("Error details logged to err.log in " + process.cwd());
     }
-  },
+  }
 };
 
 module.exports = appendToJSONFileUtil;

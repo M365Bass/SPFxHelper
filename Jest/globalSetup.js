@@ -7,7 +7,7 @@ module.exports = function () {
   // save current working dir in to revert to it in teardown
   process.env.initialPath = process.cwd();
   execSync("npm link", {
-    stdio: [],
+    stdio: []
   });
 
   fs.mkdirSync(parentFolderPath, { recursive: true });

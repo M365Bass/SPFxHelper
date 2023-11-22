@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const executeCommandUtil = require("./executeCommand");
 const cp = require("child_process");
 const fs = require("fs");

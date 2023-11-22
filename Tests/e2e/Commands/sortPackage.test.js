@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const fs = require("fs");
 const join = require("path").join;
 const wpFolderPath = require("../../../Utils/folderPaths").wpFolderPath();
@@ -24,5 +26,5 @@ test("sortPackage: dependencies in Package.json file sorted", () => {
 });
 
 test("sortPackage: postinstall script added", () => {
-  expect(packageJSON_afterChanges).toContain(`npx sort-package-json`);
+  expect(packageJSON_afterChanges).toContain("npx sort-package-json");
 });

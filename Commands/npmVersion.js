@@ -37,7 +37,7 @@ const npmVersionCommand = {
     );
 
     prettifyPathUtil.prettifyPath(packageJSON_filePath);
-  },
+  }
 };
 
 module.exports = npmVersionCommand;

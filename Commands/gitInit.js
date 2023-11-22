@@ -35,7 +35,7 @@ const gitInitCommand = {
       chalk.Error("git not installed, please install and retry", true);
       process.exit(1);
     }
-  },
+  }
 };
 
 module.exports = gitInitCommand;

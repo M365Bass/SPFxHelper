@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const fs = require("fs");
 const wpFolderPath = require("../../../Utils/folderPaths").wpFolderPath();
 const fastServeCommand = require("../../../Commands/fastServe");

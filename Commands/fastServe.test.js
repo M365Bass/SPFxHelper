@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const fastServeCommand = require("./fastServe");
 const chalk = require("../Utils/chalk");
 const sharedLiterals = require("../Sources/testLiterals").shared;
