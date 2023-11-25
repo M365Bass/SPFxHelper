@@ -1,4 +1,10 @@
 /* eslint-env jest */
+/*global
+packageJSON_beforeChanges:writeable,
+packageJSON_afterChanges:writeable,
+depsBefore:writeable,
+depsAfter:writeable,
+*/
 
 const fs = require("fs");
 const join = require("path").join;

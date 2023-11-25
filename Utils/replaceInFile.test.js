@@ -1,4 +1,10 @@
 /* eslint-env jest */
+/*global
+baseFileContents:writable,
+replaceThis:writable,
+withThis:writable,
+result:writable
+*/
 
 const replaceInFileUtil = require("./replaceInFile");
 const prettifyPathUtil = require("./prettifyPath");

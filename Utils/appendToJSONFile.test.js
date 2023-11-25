@@ -1,4 +1,17 @@
 /* eslint-env jest */
+/*global
+initialMessage:writable,
+JSONFilePath:writable,
+jsonKey:writable,
+jsonValue:writable,
+successMessage:writable,
+errorMessage:writable,
+util:writable,
+readFileSync:writable,
+chalkMessage:writable,
+chalkSuccess:writable,
+chalkError:writable,
+*/
 
 const appendToJSONFileUtil = require("./appendToJSONFile");
 const chalk = require("./chalk");
