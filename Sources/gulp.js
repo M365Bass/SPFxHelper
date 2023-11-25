@@ -32,7 +32,7 @@ gulp.task("version-sync", async function () {
   fs.writeFile(
     "./config/package-solution.json",
     JSON.stringify(pkgSolution, null, 4),
-    () => {}
+    () => {},
   );
 });
 /* end of npm version */
