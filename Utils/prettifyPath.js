@@ -6,7 +6,7 @@ const prettifyPathUtil = {
    */
 
   prettifyPath: function (path) {
-    executeCommandUtil.executeCommand("prettier --write " + path);
-  }
+    executeCommandUtil.executeCommand("npx prettier --write " + path);
+  },
 };
 module.exports = prettifyPathUtil;
