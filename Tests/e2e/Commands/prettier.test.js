@@ -1,4 +1,10 @@
 /* eslint-env jest */
+/*global
+parentWP_beforeChanges:writeable,
+componentWP_beforeChanges:writeable,
+parentWP_afterChanges:writeable,
+componentWP_afterChanges:writeable,
+*/
 
 const fs = require("fs");
 const join = require("path").join;

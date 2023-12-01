@@ -1,4 +1,11 @@
 /* eslint-env jest */
+/*global
+command:writeable,
+chdir:writeable,
+chalkMessage:writeable,
+chalkWarning:writeable,
+chalkSuccess:writeable,
+*/
 
 const fastServeCommand = require("./fastServe");
 const chalk = require("../Utils/chalk");
